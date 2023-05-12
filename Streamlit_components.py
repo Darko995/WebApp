@@ -1,4 +1,3 @@
-python -m pip install pandas-profiling
 import streamlit as st
 import pandas as pd
 import pandas_profiling
