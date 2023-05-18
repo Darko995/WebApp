@@ -103,7 +103,7 @@ st.pyplot(fig)
 # Get Ethereum's data from yfinance library
 eth = yf.Ticker("ETH-USD").history(period="max")
 btc = yf.Ticker("BTC-USD").history(period="max")
-spy = yf.download('SPY','2015-01-14','2023-05-07')*10
+spy = yf.download('SPY','2015-01-14', current_date)*10
 
 # Calculate 50, 100, and 200 day moving average
 eth["7_day_MA"] = eth["Close"].rolling(window=7).mean()
