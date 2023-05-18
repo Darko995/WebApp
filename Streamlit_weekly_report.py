@@ -96,3 +96,84 @@ plt.title('Plot BTC and S&P500 price', fontsize=30)
 
 # Display the plot in Streamlit
 st.pyplot(fig)
+
+
+
+
+# Get Ethereum's data from yfinance library
+eth = yf.Ticker("ETH-USD").history(period="max")
+btc = yf.Ticker("BTC-USD").history(period="max")
+spy = yf.download('SPY','2015-01-14','2023-05-07')*10
+
+# Calculate 50, 100, and 200 day moving average
+eth["7_day_MA"] = eth["Close"].rolling(window=7).mean()
+eth["30_day_MA"] = eth["Close"].rolling(window=30).mean()
+eth["50_day_MA"] = eth["Close"].rolling(window=50).mean()
+eth["100_day_MA"] = eth["Close"].rolling(window=100).mean()
+eth["200_day_MA"] = eth["Close"].rolling(window=200).mean()
+
+btc["7_day_MA"] = btc["Close"].rolling(window=7).mean()
+btc["30_day_MA"] = btc["Close"].rolling(window=30).mean()
+btc["50_day_MA"] = btc["Close"].rolling(window=50).mean()
+btc["100_day_MA"] = btc["Close"].rolling(window=100).mean()
+btc["200_day_MA"] = btc["Close"].rolling(window=200).mean()
+
+spy["7_day_MA"] = spy["Close"].rolling(window=7).mean()
+spy["30_day_MA"] = spy["Close"].rolling(window=30).mean()
+spy["50_day_MA"] = spy["Close"].rolling(window=50).mean()
+spy["100_day_MA"] = spy["Close"].rolling(window=100).mean()
+spy["200_day_MA"] = spy["Close"].rolling(window=200).mean()
+
+# Plot data
+fig, ax = plt.subplots(figsize=(30,12))
+ax.plot(eth["Close"], label="Price")
+ax.plot(eth["7_day_MA"], label="7 day moving average")
+ax.plot(eth["30_day_MA"], label="30 day moving average")
+ax.plot(eth["50_day_MA"], label="50 day moving average")
+ax.plot(eth["100_day_MA"], label="100 day moving average")
+ax.plot(eth["200_day_MA"], label="200 day moving average")
+
+# Add legend and title
+ax.legend(fontsize=18)
+ax.set_title("Ethereum Price and Moving Averages", fontsize=18)
+ax.set_xlabel('Date', fontsize=18)
+ax.set_ylabel('Price', fontsize=18)
+
+# Plot data
+fig2, ax2 = plt.subplots(figsize=(30,12))
+ax2.plot(btc["Close"], label="Price")
+ax2.plot(btc["7_day_MA"], label="7 day moving average")
+ax2.plot(btc["30_day_MA"], label="30 day moving average")
+ax2.plot(btc["50_day_MA"], label="50 day moving average")
+ax2.plot(btc["100_day_MA"], label="100 day moving average")
+ax2.plot(btc["200_day_MA"], label="200 day moving average")
+
+# Add legend and title
+ax2.legend(fontsize=18)
+ax2.set_title("Bitcoin Price and Moving Averages", fontsize=18)
+ax2.set_xlabel('Date', fontsize=18)
+ax2.set_ylabel('Price', fontsize=18)
+
+# Plot data
+fig3, ax3 = plt.subplots(figsize=(30,12))
+ax3.plot(spy["Close"], label="Price")
+ax3.plot(spy["7_day_MA"], label="7 day moving average")
+ax3.plot(spy["30_day_MA"], label="30 day moving average")
+ax3.plot(spy["50_day_MA"], label="50 day moving average")
+ax3.plot(spy["100_day_MA"], label="100 day moving average")
+ax3.plot(spy["200_day_MA"], label="200 day moving average")
+
+# Add legend and title
+ax3.legend(fontsize=18)
+ax3.set_title("S&P500 Price and Moving Averages", fontsize=18)
+ax3.set_xlabel('Date', fontsize=18)
+ax3.set_ylabel('Price', fontsize=18)
+
+# Display the plot in Streamlit
+st.pyplot(fig)
+
+# Display the plot in Streamlit
+st.pyplot(fig2)
+
+# Display the plot in Streamlit
+st.pyplot(fig3)
