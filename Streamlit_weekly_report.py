@@ -27,6 +27,9 @@ st.header(header_text)
 today = datetime.date.today().strftime('%Y-%m-%d')
 one_week_ago = (datetime.date.today() - datetime.timedelta(days=35)).strftime('%Y-%m-%d')
 
+# Display an H2 subheader
+st.subheader("S&P500, ETH, BTC price performance over the past 30 days")
+
 # Download the data for the new date range
 SPY = yf.download('SPY', one_week_ago, today)*10
 SPY_lr = (np.log(SPY)-np.log(SPY.shift(1)))[1:].dropna()
@@ -99,6 +102,8 @@ st.pyplot(fig)
 
 
 
+# Display an H2 subheader
+st.subheader("S&P500, ETH, BTC price performance over the past week and 7-, 30-, 50-, 100- and 200-days moving averages")
 
 # Get Ethereum's data from yfinance library
 eth = yf.Ticker("ETH-USD").history(period="max")
