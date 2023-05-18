@@ -3,11 +3,11 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-!pip install -U pycoingecko
-!pip install DeFiLlama
-!pip install Tokenterminal
-!pip install requests
-!pip install yfinance
+pip install -U pycoingecko
+pip install DeFiLlama
+pip install Tokenterminal
+pip install requests
+pip install yfinance
 from tokenterminal import TokenTerminal
 token_terminal = TokenTerminal(key='6c37f0ff-5c2b-4564-8286-3bccf6e42fd2')
 import TokenTerminal_Functions_2 as tt
