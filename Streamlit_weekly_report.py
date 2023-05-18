@@ -73,6 +73,9 @@ ax2.legend(handles2, labels2, loc='lower right', fontsize=20)
 
 plt.title('Plot BTC and ETH price', fontsize=30)
 
+# Display the plot in Streamlit
+st.pyplot(fig)
+
 fig, ax = plt.subplots(figsize=(28, 14))
 ax2 = ax.twinx()
 
@@ -90,4 +93,6 @@ ax2.set_ylabel('BTC', color='crimson', fontsize=20)
 handles2, labels2 = ax2.get_legend_handles_labels()
 ax2.legend(handles2, labels2, loc='lower right', fontsize=20)
 plt.title('Plot BTC and S&P500 price', fontsize=30)
-plt.show()
+
+# Display the plot in Streamlit
+st.pyplot(fig)
