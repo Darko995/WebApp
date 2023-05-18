@@ -12,7 +12,7 @@ import yfinance as yf
 import datetime 
 
 # Get the current date
-current_date = datetime.now().date()
+current_date = datetime.datetime.now().date()
 # Create a date input widget
 start_date = st.date_input("Start date for report", value=current_date)
 end_date = st.date_input("End date for report", value=current_date)
