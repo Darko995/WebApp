@@ -4,7 +4,8 @@ import pandas as pd
 import streamlit as st
 import requests
 import json
-import matplotlib.pyplot as plt
+import matplotlib
+from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 import yfinance as yf
