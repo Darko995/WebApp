@@ -17,7 +17,11 @@ current_date = datetime.datetime.now().date()
 start_date = st.date_input("Start date for report", value=current_date)
 end_date = st.date_input("End date for report", value=current_date)
 
-st.header('Data Weekly report for period from',start_date,'to',end_date)
+# Format the header text
+header_text = f"Data Weekly report for period from {start_date} to {end_date}"
+
+# Display the header
+st.header(header_text)
 
 # Get the data for the SPY ETF by specifying the stock ticker, start date, and end date
 today = datetime.date.today().strftime('%Y-%m-%d')
