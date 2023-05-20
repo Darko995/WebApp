@@ -386,3 +386,102 @@ st.write(round(ann_vol_eth_1w,2),' %')
 # Print the annualized volatility
 st.write('S&P500 Annualized volatility for period from', start_date, 'to', end_date)
 st.write(round(ann_vol_spy_1w,2),' %')
+
+
+
+# Display an H2 subheader
+st.subheader("S&P500, ETH, BTC Annualized volatility for an arbitrary period in the past and 7-, 30-, 50-, 100- and 200-days moving averages")
+
+min_date = datetime.date(2018, 1, 1)
+max_date = current_date
+start_date, end_date = st.slider('Select Date Range for Annualized volatility chart', min_value=min_date, max_value=max_date, value=(min_date, max_date))
+# Update the chart based on the selected date range
+# Get Ethereum's data from yfinance library
+eth = yf.Ticker("ETH-USD").history(period="max")
+eth = eth[start_date:end_date]
+btc = yf.Ticker("BTC-USD").history(period="max")
+btc = btc[start_date:end_date]
+spy = yf.download('SPY',start_date,end_date)*10
+eth.index = eth.index.tz_localize(None)
+btc.index = btc.index.tz_localize(None)
+spy.index = spy.index.tz_localize(None)
+eth = eth.drop(eth[~eth.index.isin(spy.index)].index)
+btc = btc.drop(btc[~btc.index.isin(spy.index)].index)
+
+spy_lr = (np.log(spy['Close'])-np.log(spy['Close'].shift(1)))[1:].dropna()
+btc_lr = (np.log(btc['Close'])-np.log(btc['Close'].shift(1)))[1:].dropna()
+eth_lr = (np.log(eth['Close'])-np.log(eth['Close'].shift(1)))[1:].dropna()
+
+ann_vol_btc = np.std(btc_lr[-365:])*np.sqrt(365)*100
+ann_vol_eth = np.std(eth_lr[-365:])*np.sqrt(365)*100
+ann_vol_spy = np.std(spy_lr[-365:])*np.sqrt(365)*100
+
+# Calculate 50, 100, and 200 day moving average
+ann_vol_btc_7 = (btc_lr.rolling(window=7).std())*np.sqrt(365)*100
+ann_vol_btc_30 = (btc_lr.rolling(window=30).std())*np.sqrt(365)*100
+ann_vol_btc_50 = (btc_lr.rolling(window=50).std())*np.sqrt(365)*100
+ann_vol_btc_100 = (btc_lr.rolling(window=100).std())*np.sqrt(365)*100
+ann_vol_btc_200 = (btc_lr.rolling(window=200).std())*np.sqrt(365)*100
+
+ann_vol_eth_7 = (eth_lr.rolling(window=7).std())*np.sqrt(365)*100
+ann_vol_eth_30 = (eth_lr.rolling(window=30).std())*np.sqrt(365)*100
+ann_vol_eth_50 = (eth_lr.rolling(window=50).std())*np.sqrt(365)*100
+ann_vol_eth_100 = (eth_lr.rolling(window=100).std())*np.sqrt(365)*100
+ann_vol_eth_200 = (eth_lr.rolling(window=200).std())*np.sqrt(365)*100
+
+ann_vol_spy_7 = (spy_lr.rolling(window=7).std())*np.sqrt(365)*100
+ann_vol_spy_30 = (spy_lr.rolling(window=30).std())*np.sqrt(365)*100
+ann_vol_spy_50 = (spy_lr.rolling(window=50).std())*np.sqrt(365)*100
+ann_vol_spy_100 = (spy_lr.rolling(window=100).std())*np.sqrt(365)*100
+ann_vol_spy_200 = (spy_lr.rolling(window=200).std())*np.sqrt(365)*100
+
+# Plot data
+fig, ax = plt.subplots(figsize=(30,12))
+ax.plot(ann_vol_btc_7, label="7 day moving average")
+ax.plot(ann_vol_btc_30, label="30 day moving average")
+ax.plot(ann_vol_btc_50, label="50 day moving average")
+ax.plot(ann_vol_btc_100, label="100 day moving average")
+ax.plot(ann_vol_btc_200, label="200 day moving average")
+
+# Add legend and title
+ax.legend(fontsize=18)
+ax.set_title("BTC Annualized Volatility Moving Averages", fontsize=18)
+ax.set_xlabel('Date', fontsize=18)
+ax.set_ylabel('Annualized Volatility', fontsize=18)
+
+# Plot data
+fig2, ax2 = plt.subplots(figsize=(30,12))
+ax2.plot(ann_vol_eth_7, label="7 day moving average")
+ax2.plot(ann_vol_eth_30, label="30 day moving average")
+ax2.plot(ann_vol_eth_50, label="50 day moving average")
+ax2.plot(ann_vol_eth_100, label="100 day moving average")
+ax2.plot(ann_vol_eth_200, label="200 day moving average")
+
+# Add legend and title
+ax2.legend(fontsize=18)
+ax2.set_title("ETH Annualized Volatility Moving Averages", fontsize=18)
+ax2.set_xlabel('Date', fontsize=18)
+ax2.set_ylabel('Annualized Volatility', fontsize=18)
+
+# Plot data
+fig3, ax3 = plt.subplots(figsize=(30,12))
+ax3.plot(ann_vol_spy_7, label="7 day moving average")
+ax3.plot(ann_vol_spy_30, label="30 day moving average")
+ax3.plot(ann_vol_spy_50, label="50 day moving average")
+ax3.plot(ann_vol_spy_100, label="100 day moving average")
+ax3.plot(ann_vol_spy_200, label="200 day moving average")
+
+# Add legend and title
+ax3.legend(fontsize=18)
+ax3.set_title("S&P500 Annualized Volatility Moving Averages", fontsize=18)
+ax3.set_xlabel('Date', fontsize=18)
+ax3.set_ylabel('Annualized Volatility', fontsize=18)
+
+# Display the plot in Streamlit
+st.pyplot(fig)
+
+# Display the plot in Streamlit
+st.pyplot(fig2)
+
+# Display the plot in Streamlit
+st.pyplot(fig3)
