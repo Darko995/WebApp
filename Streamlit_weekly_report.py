@@ -111,9 +111,10 @@ start_date, end_date = st.slider('Select Date Range', min_value=min_date, max_va
 # Update the chart based on the selected date range
 
 # Get Ethereum's data from yfinance library
-#eth = yf.Ticker("ETH-USD").history(period="max")
-eth = yf.download('ETH-USD',start_date,end_date)
-btc = yf.download("BTC-USD",start_date,end_date)
+eth = yf.Ticker("ETH-USD").history(period="max")
+eth = eth[start_date:end_date]
+btc = yf.Ticker("BTC-USD").history(period="max")
+btc = btc[start_date:end_date]
 spy = yf.download('SPY',start_date,end_date)*10
 
 # Calculate 50, 100, and 200 day moving average
