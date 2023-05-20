@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 import datetime 
-import CoinGeckoFunctions_2 as cgf
+from CoinGeckoFunctions_2 import get_data_start_to_end
 
 # Get the current date
 current_date = datetime.datetime.now().date()
@@ -499,7 +499,7 @@ start = datetime.datetime(2017, 1, 1)
 end = datetime.datetime.today()
 
 # Get bitcoin's data from CoinGecko API
-btc = cgf.get_data_start_to_end('bitcoin', start, end)
+btc = get_data_start_to_end('bitcoin', start, end)
 
 # Calculate daily returns and annualized volatility
 btc_CCR = (np.log(btc)-np.log(btc.shift(1)))[1:]
