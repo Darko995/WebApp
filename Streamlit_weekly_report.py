@@ -232,5 +232,6 @@ corr_matrix_1 = pd.concat([spy_lr_1w, btc_lr_1w, eth_lr_1w], axis=1).corr()
 corr_matrix_1.index = ['S&P500', 'btc', 'eth']
 corr_matrix_1.columns = ['S&P500', 'btc', 'eth']
 
-# print the correlation matrix
-print('correlation matrix for period from ',start_date,'to',end_date,': \n',corr_matrix_1)
+# Print the correlation matrix
+st.write('Correlation matrix for period from', start_date, 'to', end_date)
+st.write(corr_matrix_1)
