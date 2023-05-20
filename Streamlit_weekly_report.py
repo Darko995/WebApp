@@ -384,5 +384,5 @@ st.write('Ethereum Annualized volatility for period from', start_date, 'to', end
 st.write(round(ann_vol_eth_1w,2),' %')
 
 # Print the annualized volatility
-st.write('S$P500 Annualized volatility for period from', start_date, 'to', end_date)
+st.write('S&P500 Annualized volatility for period from', start_date, 'to', end_date)
 st.write(round(ann_vol_spy_1w,2),' %')
