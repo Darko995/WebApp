@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 import datetime 
+from pycoingecko import CoinGeckoAPI
 from CoinGeckoFunctions_2 import get_data_start_to_end
 
 # Get the current date
