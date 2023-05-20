@@ -363,8 +363,8 @@ eth_lr = (np.log(eth['Close'])-np.log(eth['Close'].shift(1)))[1:].dropna()
 #start_date, end_date = st.slider('Select Dates to calculate Annualized volatility', min_value=min_date, max_value=max_date, value=(min_date, max_date))
 # Update the chart based on the selected date range
 
-start_date = st.date_input("Start date for report", value=current_date)
-end_date = st.date_input("End date for report", value=current_date)
+start_date = st.date_input("Start date for Annualized volatility calculation", value=current_date)
+end_date = st.date_input("End date for Annualized volatility calculation", value=current_date)
 
 # select the data between start and end dates
 spy_lr_1w = spy_lr.loc[start_date:end_date]
