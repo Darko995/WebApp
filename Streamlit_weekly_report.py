@@ -235,3 +235,102 @@ corr_matrix_1.columns = ['S&P500', 'btc', 'eth']
 # Print the correlation matrix
 st.write('Correlation matrix for period from', start_date, 'to', end_date)
 st.write(corr_matrix_1)
+
+
+
+
+# Display an H2 subheader
+st.subheader("S&P500, ETH, BTC correlation for an arbitrary period in the past and 7-, 30-, 50-, 100- and 200-days moving averages")
+
+min_date = datetime.date(2018, 1, 1)
+max_date = current_date
+start_date, end_date = st.slider('Select Date Range', min_value=min_date, max_value=max_date, value=(min_date, max_date))
+# Update the chart based on the selected date range
+
+# Get Ethereum's data from yfinance library
+eth = yf.Ticker("ETH-USD").history(period="max")
+eth = eth[start_date:end_date]
+btc = yf.Ticker("BTC-USD").history(period="max")
+btc = btc[start_date:end_date]
+spy = yf.download('SPY',start_date,end_date)*10
+eth.index = eth.index.tz_localize(None)
+btc.index = btc.index.tz_localize(None)
+spy.index = spy.index.tz_localize(None)
+eth = eth.drop(eth[~eth.index.isin(spy.index)].index)
+btc = btc.drop(btc[~btc.index.isin(spy.index)].index)
+
+spy_lr = (np.log(spy['Close'])-np.log(spy['Close'].shift(1)))[1:].dropna()
+btc_lr = (np.log(btc['Close'])-np.log(btc['Close'].shift(1)))[1:].dropna()
+eth_lr = (np.log(eth['Close'])-np.log(eth['Close'].shift(1)))[1:].dropna()
+
+# Calculate rolling correlation between BTC and SPY
+rolling_corr_7_btc_spy = pd.Series(btc_lr).rolling(window=7).corr(spy_lr)
+rolling_corr_30_btc_spy = pd.Series(btc_lr).rolling(window=30).corr(spy_lr)
+rolling_corr_50_btc_spy = pd.Series(btc_lr).rolling(window=50).corr(spy_lr)
+rolling_corr_100_btc_spy = pd.Series(btc_lr).rolling(window=100).corr(spy_lr)
+rolling_corr_200_btc_spy = pd.Series(btc_lr).rolling(window=200).corr(spy_lr)
+
+# Calculate rolling correlation between ETH and SPY
+rolling_corr_7_eth_spy = pd.Series(eth_lr).rolling(window=7).corr(spy_lr)
+rolling_corr_30_eth_spy = pd.Series(eth_lr).rolling(window=30).corr(spy_lr)
+rolling_corr_50_eth_spy = pd.Series(eth_lr).rolling(window=50).corr(spy_lr)
+rolling_corr_100_eth_spy = pd.Series(eth_lr).rolling(window=100).corr(spy_lr)
+rolling_corr_200_eth_spy = pd.Series(eth_lr).rolling(window=200).corr(spy_lr)
+
+# Calculate rolling correlation between BTC and ETH
+rolling_corr_7_eth_btc = pd.Series(btc_lr).rolling(window=7).corr(eth_lr)
+rolling_corr_30_eth_btc = pd.Series(btc_lr).rolling(window=30).corr(eth_lr)
+rolling_corr_50_eth_btc = pd.Series(btc_lr).rolling(window=50).corr(eth_lr)
+rolling_corr_100_eth_btc = pd.Series(btc_lr).rolling(window=100).corr(eth_lr)
+rolling_corr_200_eth_btc = pd.Series(btc_lr).rolling(window=200).corr(eth_lr)
+
+# Plot data
+fig, ax = plt.subplots(figsize=(30,12))
+#ax.plot(rolling_corr_7_btc_spy, label="7 day moving average")
+ax.plot(rolling_corr_30_btc_spy, label="30 day moving average")
+ax.plot(rolling_corr_50_btc_spy, label="50 day moving average")
+ax.plot(rolling_corr_100_btc_spy, label="100 day moving average")
+ax.plot(rolling_corr_200_btc_spy, label="200 day moving average")
+
+# Add legend and title
+ax.legend(fontsize=18)
+ax.set_title("BTC and S&P500 Correlation Moving Averages", fontsize=18)
+ax.set_xlabel('Date', fontsize=18)
+ax.set_ylabel('Correlation', fontsize=18)
+
+# Plot data
+fig2, ax2 = plt.subplots(figsize=(30,12))
+#ax2.plot(rolling_corr_7_eth_spy, label="7 day moving average")
+ax2.plot(rolling_corr_30_eth_spy, label="30 day moving average")
+ax2.plot(rolling_corr_50_eth_spy, label="50 day moving average")
+ax2.plot(rolling_corr_100_eth_spy, label="100 day moving average")
+ax2.plot(rolling_corr_200_eth_spy, label="200 day moving average")
+
+# Add legend and title
+ax2.legend(fontsize=18)
+ax2.set_title("ETH and S&P500 Correlation Moving Averages", fontsize=18)
+ax2.set_xlabel('Date', fontsize=18)
+ax2.set_ylabel('Corellation', fontsize=18)
+
+# Plot data
+fig3, ax3 = plt.subplots(figsize=(30,12))
+#ax3.plot(rolling_corr_7_eth_btc, label="7 day moving average")
+ax3.plot(rolling_corr_30_eth_btc, label="30 day moving average")
+ax3.plot(rolling_corr_50_eth_btc, label="50 day moving average")
+ax3.plot(rolling_corr_100_eth_btc, label="100 day moving average")
+ax3.plot(rolling_corr_200_eth_btc, label="200 day moving average")
+
+# Add legend and title
+ax3.legend(fontsize=18)
+ax3.set_title("ETH and BTC Correlation Moving Averages", fontsize=18)
+ax3.set_xlabel('Date', fontsize=18)
+ax3.set_ylabel('Correlation', fontsize=18)
+
+# Display the plot in Streamlit
+st.pyplot(fig)
+
+# Display the plot in Streamlit
+st.pyplot(fig2)
+
+# Display the plot in Streamlit
+st.pyplot(fig3)
