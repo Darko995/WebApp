@@ -103,7 +103,7 @@ st.pyplot(fig)
 
 
 # Display an H2 subheader
-st.subheader("S&P500, ETH, BTC price performance over the past week and 7-, 30-, 50-, 100- and 200-days moving averages")
+st.subheader("S&P500, ETH, BTC price performance for an arbitrary period in the past and 7-, 30-, 50-, 100- and 200-days moving averages")
 
 min_date = datetime.date(2018, 1, 1)
 max_date = current_date
