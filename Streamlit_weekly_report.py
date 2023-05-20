@@ -496,8 +496,8 @@ st.pyplot(fig3)
 st.subheader("S&P500, ETH, BTC Annualized volatility for an arbitrary period in the past and 7-, 30-, 50-, 100- and 200-days moving averages")
 
 # Define start and end dates
-start = datetime.datetime(2017, 1, 1)
-end = datetime.datetime.today()
+start = datetime.date(2017, 1, 1)
+end = datetime.date.today()
 
 # Get bitcoin's data from CoinGecko API
 btc = get_data_start_to_end('bitcoin', start, end)
