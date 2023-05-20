@@ -244,7 +244,7 @@ st.subheader("S&P500, ETH, BTC correlation for an arbitrary period in the past a
 
 min_date = datetime.date(2018, 1, 1)
 max_date = current_date
-start_date, end_date = st.slider('Select Date Range', min_value=min_date, max_value=max_date, value=(min_date, max_date))
+start_date, end_date = st.slider('Select Date Range for correlation chart', min_value=min_date, max_value=max_date, value=(min_date, max_date))
 # Update the chart based on the selected date range
 
 # Get Ethereum's data from yfinance library
