@@ -501,7 +501,15 @@ end = datetime.date.today()
 
 # Get bitcoin's data from CoinGecko API
 btc = get_data_start_to_end('bitcoin', start, end)
+import pytz
 
+# Assuming 'start_date' and 'end_date' are timezone-naive datetime objects
+timezone = pytz.timezone('Your_Timezone')  # Replace 'Your_Timezone' with the desired timezone
+start = timezone.localize(start)
+end = timezone.localize(end)
+
+# Indexing with timezone-aware datetime objects
+btc = btc.loc[start:end]
 # Calculate daily returns and annualized volatility
 btc_CCR = (np.log(btc)-np.log(btc.shift(1)))[1:]
 btc_std = np.std(btc_CCR)[0] * np.sqrt(365)
