@@ -105,7 +105,7 @@ st.pyplot(fig)
 # Display an H2 subheader
 st.subheader("S&P500, ETH, BTC price performance over the past week and 7-, 30-, 50-, 100- and 200-days moving averages")
 
-min_date = '2015-01-14'
+min_date = '2018-01-01'
 max_date = current_date
 start_date, end_date = st.slider('Select Date Range', min_value=min_date, max_value=max_date, value=(min_date, max_date))
 # Update the chart based on the selected date range
