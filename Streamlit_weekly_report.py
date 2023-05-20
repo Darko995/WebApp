@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 import datetime 
+import CoinGeckoFunctions_2 as cgf
 
 # Get the current date
 current_date = datetime.datetime.now().date()
@@ -506,8 +507,10 @@ btc_std = np.std(btc_CCR)[0] * np.sqrt(365)
 
 # Define model parameters
 price0 = btc[-1:]['bitcoin'][0]
-sigma = 0.52 #https://www.deribit.com/options/BTC/BTC-29DEC23
-btc_daily_mean = 0.0473 #https://ycharts.com/indicators/1_year_treasury_rate
+sigma = st.number_input("Enter a IV")
+#sigma = 0.52 #https://www.deribit.com/options/BTC/BTC-29DEC23
+btc_daily_mean = st.number_input("1 year treasury rate")
+#btc_daily_mean = 0.0473 #https://ycharts.com/indicators/1_year_treasury_rate
 mean = btc_daily_mean
 delta_t = 1 / 365
 num_periods = 365
@@ -549,4 +552,4 @@ table = pd.DataFrame({
 })
 table.insert(0, "Current Price", "${0:,.0f}".format(price0))
 table["Probability"] = table["Probability"].apply(lambda x: f"{x:.2%}")
-print(table.to_string(index=False))
+st.dataframe(table)
