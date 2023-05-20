@@ -334,3 +334,52 @@ st.pyplot(fig2)
 
 # Display the plot in Streamlit
 st.pyplot(fig3)
+
+
+
+
+# Display an H2 subheader
+st.subheader("S&P500, ETH, BTC Annualized volatility for an arbitrary period in the past")
+
+# Get Ethereum's data from yfinance library
+eth = yf.Ticker("ETH-USD").history(period="max")
+eth = eth['2018-01-01':current_date]
+btc = yf.Ticker("BTC-USD").history(period="max")
+btc = btc['2018-01-01':current_date]
+
+spy = yf.download('SPY','2018-01-01',current_date)*10
+eth.index = eth.index.tz_localize(None)
+btc.index = btc.index.tz_localize(None)
+spy.index = spy.index.tz_localize(None)
+eth = eth.drop(eth[~eth.index.isin(spy.index)].index)
+btc = btc.drop(btc[~btc.index.isin(spy.index)].index)
+
+spy_lr = (np.log(spy['Close'])-np.log(spy['Close'].shift(1)))[1:].dropna()
+btc_lr = (np.log(btc['Close'])-np.log(btc['Close'].shift(1)))[1:].dropna()
+eth_lr = (np.log(eth['Close'])-np.log(eth['Close'].shift(1)))[1:].dropna()
+
+min_date = datetime.date(2018, 1, 1)
+max_date = current_date
+start_date, end_date = st.slider('Select Dates to calculate Annualized volatility', min_value=min_date, max_value=max_date, value=(min_date, max_date))
+# Update the chart based on the selected date range
+
+# select the data between start and end dates
+spy_lr_1w = spy_lr.loc[start_date:end_date]
+btc_lr_1w = btc_lr.loc[start_date:end_date]
+eth_lr_1w = eth_lr.loc[start_date:end_date]
+
+ann_vol_btc_1w = np.std(btc_lr_1w) * np.sqrt(365) * 100
+ann_vol_eth_1w = np.std(eth_lr_1w) * np.sqrt(365) * 100
+ann_vol_spy_1w = np.std(spy_lr_1w) * np.sqrt(365) * 100
+
+# Print the annualized volatility
+st.write('Bitcoin Annualized volatility for period from', start_date, 'to', end_date)
+st.write(round(ann_vol_btc_1w,2),' %')
+
+# Print the annualized volatility
+st.write('Ethereum Annualized volatility for period from', start_date, 'to', end_date)
+st.write(round(ann_vol_eth_1w,2),' %')
+
+# Print the annualized volatility
+st.write('Bitcoin Annualized volatility for period from', start_date, 'to', end_date)
+st.write(round(ann_vol_spy_1w,2),' %')
