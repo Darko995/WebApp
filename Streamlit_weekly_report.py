@@ -105,10 +105,16 @@ st.pyplot(fig)
 # Display an H2 subheader
 st.subheader("S&P500, ETH, BTC price performance over the past week and 7-, 30-, 50-, 100- and 200-days moving averages")
 
+min_date = '2015-01-14'
+max_date = current_date
+start_date, end_date = st.slider('Select Date Range', min_value=min_date, max_value=max_date, value=(min_date, max_date))
+# Update the chart based on the selected date range
+
 # Get Ethereum's data from yfinance library
-eth = yf.Ticker("ETH-USD").history(period="max")
-btc = yf.Ticker("BTC-USD").history(period="max")
-spy = yf.download('SPY','2015-01-14', current_date)*10
+#eth = yf.Ticker("ETH-USD").history(period="max")
+eth = yf.download('ETH-USD',start_date,end_date)
+btc = yf.download("BTC-USD",start_date,end_date)
+spy = yf.download('SPY',start_date,end_date)*10
 
 # Calculate 50, 100, and 200 day moving average
 eth["7_day_MA"] = eth["Close"].rolling(window=7).mean()
