@@ -77,15 +77,15 @@ def portfolio_projects_mcap_timeseries(project_id):
         df = df.T.dropna()
         return df
      def get_data_mcap_c(data):
-        date = []
-        mcap = []
-        for i in range(len(data)):
-            date.append(pd.to_datetime((data[i]['timestamp'])))
-            mcap.append(data[i]['market_cap_fully_diluted'])
-        dataa = [mcap]
-        df = pd.DataFrame(dataa, columns=date, index=['mcap'])
-        df = df.T.dropna()
-        return df
+         date = []
+         mcap = []
+         for i in range(len(data)):
+             date.append(pd.to_datetime((data[i]['timestamp'])))
+             mcap.append(data[i]['market_cap_fully_diluted'])
+         dataa = [mcap]
+         df = pd.DataFrame(dataa, columns=date, index=['mcap'])
+         df = df.T.dropna()
+         return df
     try :
          headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
 
