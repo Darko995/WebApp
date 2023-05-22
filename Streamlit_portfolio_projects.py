@@ -120,12 +120,12 @@ with st.form('checkbox_form'):
 
     submitted = st.form_submit_button('Submit')
 
-    if submitted:
-        # Display charts for selected projects
-        for project in selected_projects:
-            st.header(f"Here's some charts for {project.capitalize()}!")
-            f = portfolio_projects_fdv_timeseries(project)
-            st.pyplot(f)
+if submitted:
+    # Display charts for selected projects
+    for project in selected_projects:
+        st.header(f"Here's some charts for {project.capitalize()}!")
+        f = portfolio_projects_fdv_timeseries(project)
+        st.pyplot(f)
 
 
 
