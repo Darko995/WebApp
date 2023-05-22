@@ -108,3 +108,5 @@ if submitted:
         if project not in {'vomex','imposible-finance'}:
             f = portfolio_projects_fdv_timeseries(project)
             st.pyplot(f)
+        else:
+            pass
