@@ -11,20 +11,6 @@ import yfinance as yf
 import datetime 
 
 def portfolio_projects_fdv_timeseries(project_id):
-
-    """
-      This Python function named "portfolio_projects_fdv_timeseries" takes in two arguments: a list of project IDs and a start date.
-      The function retrieves fdv data for each project ID and generates a line plot of the fdv over time.
-      The function returns the resulting plot as a matplotlib Figure object.
-
-      Example usage:
-
-        from multi_project_fdv import multi_project_fdv
-        project_ids = ['bitcoin', 'ethereum']
-        start_date = '2022-01-01'
-        result = multi_project_fdv(project_ids, start_date)
-        
-      """
       
     def get_data(data):
         date = []
@@ -67,6 +53,9 @@ def portfolio_projects_fdv_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_c(data)
+    except:
+    # Code to handle any other exception
+        pass
     df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
     ax.set_title(f"FDV of {project_id}", fontsize=18)
     ax.set_xlabel('Date', fontsize=18)
