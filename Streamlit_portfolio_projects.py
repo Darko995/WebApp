@@ -105,7 +105,7 @@ if submitted:
     # Display charts for selected projects
     for project in selected_projects:
         st.header(f"Here's some charts for {project.capitalize()}!")
-        if project in {'vomex','imposible-finance'}:
+        if project in ['vomex','imposible-finance']:
             continue
         else:
             f = portfolio_projects_fdv_timeseries(project)
