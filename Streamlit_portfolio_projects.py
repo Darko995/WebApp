@@ -137,7 +137,7 @@ with st.form('checkbox_form'):
 #uma = st.checkbox('uma')
 #dhedge = st.checkbox('dhedge')
 #cosmos = st.checkbox('cosmos')
-    if submitted:
+
         if filecoin:
             st.header("Here's some charts for Filecoin!")
             f = portfolio_projects_fdv_timeseries('filecoin')
