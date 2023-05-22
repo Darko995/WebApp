@@ -76,14 +76,6 @@ def portfolio_projects_fdv_timeseries(project_id):
 
     return fig
 
-# Get the current date
-#current_date = datetime.now().date()
-# Create a date input widget
-#start_date = st.date_input("Start date for report", value=current_date)
-#end_date = st.date_input("End date for report", value=current_date)
-
-
-
 columns = 3  # Number of columns
 selected_projects = []
 
@@ -126,29 +118,3 @@ if submitted:
         st.header(f"Here's some charts for {project.capitalize()}!")
         f = portfolio_projects_fdv_timeseries(project)
         st.pyplot(f)
-
-
-
-#st.write ('Which project would you like to check?')
-
-#volmex = st.checkbox('volmex')
-#filecoin = st.checkbox('filecoin')
-#polkadot = st.checkbox('polkadot')
-#arbitrum = st.checkbox('arbitrum')
-#mcdex = st.checkbox('mux')
-#dodo = st.checkbox('dodo')
-#mina = st.checkbox('mina')
-#liquity = st.checkbox('liquity')
-#OneInch = st.checkbox('1inch')
-#avalanche = st.checkbox('avalanche')
-#makerdao = st.checkbox('makerdao')
-#near_protocol = st.checkbox('near-protocol')
-#synthetix = st.checkbox('synthetix')
-#kyberswap = st.checkbox('kyberswap')
-#conflux = st.checkbox('conflux')
-#Ox = st.checkbox('0x')
-#immposible_finance = st.checkbox('immposible-finance')
-#centrifuge = st.checkbox('centrifuge')
-#uma = st.checkbox('uma')
-#dhedge = st.checkbox('dhedge')
-#cosmos = st.checkbox('cosmos')
