@@ -91,12 +91,12 @@ with st.form('checkbox_form'):
 
     # List of checkbox labels
     checkbox_labels = [
-            'volmex', 'filecoin', 'polkadot', 'arbitrum', 'mux',
-            'dodo', 'mina', 'liquity', '1inch', 'avalanche',
-            'makerdao', 'near-protocol', 'synthetix', 'kyberswap',
-            'conflux', '0x', 'immposible-finance', 'centrifuge',
-            'uma', 'dhedge', 'cosmos'
-        ]
+        'volmex', 'filecoin', 'polkadot', 'arbitrum', 'mux',
+        'dodo', 'mina', 'liquity', '1inch', 'avalanche',
+        'makerdao', 'near-protocol', 'synthetix', 'kyberswap',
+        'conflux', '0x', 'immposible-finance', 'centrifuge',
+        'uma', 'dhedge', 'cosmos'
+    ]
 
     # Calculate the number of rows
     num_rows = len(checkbox_labels) // columns + 1
@@ -108,11 +108,23 @@ with st.form('checkbox_form'):
             index = i * columns + j
 
             if index < len(checkbox_labels):
-                cols_container[j].checkbox(label=checkbox_labels[index], key=index)
+                # Store the checkbox value in a variable
+                checkbox_value = cols_container[j].checkbox(
+                    label=checkbox_labels[index], key=index
+                )
+
+                # Use the checkbox value to conditionally display charts
+                if checkbox_value:
+                    st.header(f"Here's some charts for {checkbox_labels[index].capitalize()}!")
+                    f = portfolio_projects_fdv_timeseries(checkbox_labels[index])
+                    st.pyplot(f)
 
     submitted = st.form_submit_button('Submit')
 
     if submitted:
+        # Handle form submission logic
+        pass
+
 
 #st.write ('Which project would you like to check?')
 
