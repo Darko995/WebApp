@@ -155,10 +155,8 @@ if submitted:
     # Display charts for selected projects
     for project in selected_projects:
         st.header(f"Here's some charts for {project.capitalize()}!")
-        if project in {'volmex','immposible-finance'}:
-            continue
-        else:
-            f = portfolio_projects_fdv_timeseries(project)
-            st.pyplot(f)
-            m = portfolio_projects_mcap_timeseries(project)
-            st.pyplot(m)
+        f = portfolio_projects_fdv_timeseries(project)
+        
+        st.pyplot(f)
+        m = portfolio_projects_mcap_timeseries(project)
+        st.pyplot(m)
