@@ -85,6 +85,7 @@ def portfolio_projects_fdv_timeseries(project_id):
 
 
 columns = 3  # Number of columns
+selected_projects = []
 
 with st.form('checkbox_form'):
     st.write('Which project would you like to check?')
@@ -113,17 +114,19 @@ with st.form('checkbox_form'):
                     label=checkbox_labels[index], key=index
                 )
 
-                # Use the checkbox value to conditionally display charts
+                # Add the selected project to the list
                 if checkbox_value:
-                    st.header(f"Here's some charts for {checkbox_labels[index].capitalize()}!")
-                    f = portfolio_projects_fdv_timeseries(checkbox_labels[index])
-                    st.pyplot(f)
+                    selected_projects.append(checkbox_labels[index])
 
     submitted = st.form_submit_button('Submit')
 
     if submitted:
-        # Handle form submission logic
-        pass
+        # Display charts for selected projects
+        for project in selected_projects:
+            st.header(f"Here's some charts for {project.capitalize()}!")
+            f = portfolio_projects_fdv_timeseries(project)
+            st.pyplot(f)
+
 
 
 #st.write ('Which project would you like to check?')
