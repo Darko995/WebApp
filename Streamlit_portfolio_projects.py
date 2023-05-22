@@ -82,29 +82,69 @@ def portfolio_projects_fdv_timeseries(project_id):
 #start_date = st.date_input("Start date for report", value=current_date)
 #end_date = st.date_input("End date for report", value=current_date)
 
-st.write ('Which project would you like to check?')
 
-volmex = st.checkbox('volmex')
-filecoin = st.checkbox('filecoin')
-polkadot = st.checkbox('polkadot')
-arbitrum = st.checkbox('arbitrum')
-mcdex = st.checkbox('mux')
-dodo = st.checkbox('dodo')
-mina = st.checkbox('mina')
-liquity = st.checkbox('liquity')
-OneInch = st.checkbox('1inch')
-avalanche = st.checkbox('avalanche')
-makerdao = st.checkbox('makerdao')
-near_protocol = st.checkbox('near-protocol')
-synthetix = st.checkbox('synthetix')
-kyberswap = st.checkbox('kyberswap')
-conflux = st.checkbox('conflux')
-Ox = st.checkbox('0x')
-immposible_finance = st.checkbox('immposible-finance')
-centrifuge = st.checkbox('centrifuge')
-uma = st.checkbox('uma')
-dhedge = st.checkbox('dhedge')
-cosmos = st.checkbox('cosmos')
+
+def main():
+    columns = 3  # Number of columns
+
+    with st.form('checkbox_form'):
+        st.write('Which project would you like to check?')
+
+        # List of checkbox labels
+        checkbox_labels = [
+            'volmex', 'filecoin', 'polkadot', 'arbitrum', 'mux',
+            'dodo', 'mina', 'liquity', '1inch', 'avalanche',
+            'makerdao', 'near-protocol', 'synthetix', 'kyberswap',
+            'conflux', '0x', 'immposible-finance', 'centrifuge',
+            'uma', 'dhedge', 'cosmos'
+        ]
+
+        # Calculate the number of rows
+        num_rows = len(checkbox_labels) // columns + 1
+
+        for i in range(num_rows):
+            cols_container = st.beta_columns(columns)
+
+            for j in range(columns):
+                index = i * columns + j
+
+                if index < len(checkbox_labels):
+                    cols_container[j].checkbox(label=checkbox_labels[index], key=index)
+
+        submitted = st.form_submit_button('Submit')
+
+        if submitted:
+            # Handle form submission logic
+            pass
+
+if __name__ == '__main__':
+    main()
+
+
+
+#st.write ('Which project would you like to check?')
+
+#volmex = st.checkbox('volmex')
+#filecoin = st.checkbox('filecoin')
+#polkadot = st.checkbox('polkadot')
+#arbitrum = st.checkbox('arbitrum')
+#mcdex = st.checkbox('mux')
+#dodo = st.checkbox('dodo')
+#mina = st.checkbox('mina')
+#liquity = st.checkbox('liquity')
+#OneInch = st.checkbox('1inch')
+#avalanche = st.checkbox('avalanche')
+#makerdao = st.checkbox('makerdao')
+#near_protocol = st.checkbox('near-protocol')
+#synthetix = st.checkbox('synthetix')
+#kyberswap = st.checkbox('kyberswap')
+#conflux = st.checkbox('conflux')
+#Ox = st.checkbox('0x')
+#immposible_finance = st.checkbox('immposible-finance')
+#centrifuge = st.checkbox('centrifuge')
+#uma = st.checkbox('uma')
+#dhedge = st.checkbox('dhedge')
+#cosmos = st.checkbox('cosmos')
 if filecoin:
      st.header("Here's some charts for Filecoin!")
      f = portfolio_projects_fdv_timeseries('filecoin')
