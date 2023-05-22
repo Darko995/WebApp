@@ -42,9 +42,9 @@ def portfolio_projects_fdv_timeseries(project_id):
         fdv  =[]
         for i in range(len(data)):
             date.append(pd.to_datetime((data[i]['timestamp'])))
-            FDV.append(data[i]['market_cap_circulating'])
+            fdv.append(data[i]['market_cap_circulating'])
         dataa = [fdv]
-        df = pd.DataFrame(dataa, columns=date, index=['FDV'])
+        df = pd.DataFrame(dataa, columns=date, index=['fdv'])
         df = df.T.dropna()
         return df
     try :
