@@ -53,7 +53,7 @@ def portfolio_projects_fdv_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_c(data)
-    except:
+    except KeyError:
     # Code to handle any other exception
         pass
     df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
