@@ -66,7 +66,7 @@ def portfolio_projects_fdv_timeseries(project_id):
     return fig
 def portfolio_projects_mcap_timeseries(project_id):
       
-    def get_data(data):
+    def get_data_mcap(data):
         date = []
         mcap = []
         for i in range(len(data)):
@@ -86,10 +86,7 @@ def portfolio_projects_mcap_timeseries(project_id):
         response = requests.get(url, headers=headers)
         data_shows = json.loads(response.text)
         data = data_shows['data']
-        df = get_data(data)
-    except KeyError:
-    # Code to handle any other exception
-        pass
+        df = get_data_mcap(data)
     df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
     ax.set_title(f"MCAP of {project_id}", fontsize=18)
     ax.set_xlabel('Date', fontsize=18)
