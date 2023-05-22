@@ -112,9 +112,9 @@ if filecoin:
      st.pyplot(f)
 if volmex:
      st.header("Here's some charts for Volmex!")
-     f = portfolio_projects_fdv_timeseries('volmex')
+     #f = portfolio_projects_fdv_timeseries('volmex')
      # Display the plot in Streamlit
-     st.pyplot(f)
+     #st.pyplot(f)
 if polkadot:
      st.header("Here's some charts for Polkadot!")
      f = portfolio_projects_fdv_timeseries('polkadot')
@@ -203,5 +203,10 @@ if dhedge:
 if cosmos:
      st.header("Here's some charts for Cosmos!")
      f = portfolio_projects_fdv_timeseries('cosmos')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if liquity:
+     st.header("Here's some charts for Liquity!")
+     f = portfolio_projects_fdv_timeseries('liquity')
      # Display the plot in Streamlit
      st.pyplot(f)
