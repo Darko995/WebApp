@@ -57,10 +57,10 @@ def portfolio_projects_fdv_timeseries(project_id):
     return fig
 
 # Get the current date
-current_date = datetime.now().date()
+#current_date = datetime.now().date()
 # Create a date input widget
-start_date = st.date_input("Start date for report", value=current_date)
-end_date = st.date_input("End date for report", value=current_date)
+#start_date = st.date_input("Start date for report", value=current_date)
+#end_date = st.date_input("End date for report", value=current_date)
 
 st.write ('Which project would you like to check?')
 
