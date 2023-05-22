@@ -156,7 +156,8 @@ if submitted:
     for project in selected_projects:
         st.header(f"Here's some charts for {project.capitalize()}!")
         f = portfolio_projects_fdv_timeseries(project)
-        
+        st.subheader("Fully diluted valuation")
         st.pyplot(f)
+        st.subheader("Market capitalization")
         m = portfolio_projects_mcap_timeseries(project)
         st.pyplot(m)
