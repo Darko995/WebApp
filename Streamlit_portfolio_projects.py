@@ -73,7 +73,7 @@ dodo = st.checkbox('dodo')
 mina = st.checkbox('mina')
 liquity = st.checkbox('liquity')
 
-if volmex:
-     st.header("Great! Here's some charts for volmex")
-     portfolio_projects_fdv_timeseries('volmex')
+if filecoin:
+     st.header("Great! Here's some charts for filecoin")
+     portfolio_projects_fdv_timeseries('filecoin')
      
