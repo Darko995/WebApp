@@ -88,13 +88,120 @@ volmex = st.checkbox('volmex')
 filecoin = st.checkbox('filecoin')
 polkadot = st.checkbox('polkadot')
 arbitrum = st.checkbox('arbitrum')
-mux = st.checkbox('mux')
+mcdex = st.checkbox('mux')
 dodo = st.checkbox('dodo')
 mina = st.checkbox('mina')
 liquity = st.checkbox('liquity')
-
+OneInch = st.checkbox('1inch')
+avalanche = st.checkbox('avalanche')
+makerdao = st.checkbox('makerdao')
+near_protocol = st.checkbox('near-protocol')
+synthetix = st.checkbox('synthetix')
+kyberswap = st.checkbox('kyberswap')
+conflux = st.checkbox('conflux')
+Ox = st.checkbox('0x')
+immposible_finance = st.checkbox('immposible-finance')
+centrifuge = st.checkbox('centrifuge')
+uma = st.checkbox('uma')
+dhedge = st.checkbox('dhedge')
+cosmos = st.checkbox('cosmos')
 if filecoin:
-     st.header("Great! Here's some charts for filecoin")
+     st.header("Here's some charts for Filecoin!")
      f = portfolio_projects_fdv_timeseries('filecoin')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if volmex:
+     st.header("Here's some charts for Volmex!")
+     f = portfolio_projects_fdv_timeseries('volmex')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if polkadot:
+     st.header("Here's some charts for Polkadot!")
+     f = portfolio_projects_fdv_timeseries('polkadot')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if arbitrum:
+     st.header("Here's some charts for Arbitrum!")
+     f = portfolio_projects_fdv_timeseries('arbitrum')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if mcdex:
+     st.header("Here's some charts for Mcdex!")
+     f = portfolio_projects_fdv_timeseries('mux')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if dodo:
+     st.header("Here's some charts for DODO!")
+     f = portfolio_projects_fdv_timeseries('dodo')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if mina:
+     st.header("Here's some charts for Mina!")
+     f = portfolio_projects_fdv_timeseries('mina')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if OneInch:
+     st.header("Here's some charts for 1inch!")
+     f = portfolio_projects_fdv_timeseries('1inch')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if avalanche:
+     st.header("Here's some charts for Avalanche!")
+     f = portfolio_projects_fdv_timeseries('avalanche')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if makerdao:
+     st.header("Here's some charts for MakerDAO!")
+     f = portfolio_projects_fdv_timeseries('makerdao')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if near_protocol:
+     st.header("Here's some charts for NEAR-protocol!")
+     f = portfolio_projects_fdv_timeseries('near-protocol')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if synthetix:
+     st.header("Here's some charts for Synthetix!")
+     f = portfolio_projects_fdv_timeseries('synthetix')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if kyberswap:
+     st.header("Here's some charts for Kyberswap!")
+     f = portfolio_projects_fdv_timeseries('kyberswap')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if conflux:
+     st.header("Here's some charts for Conflux!")
+     f = portfolio_projects_fdv_timeseries('conflux')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if Ox:
+     st.header("Here's some charts for 0x!")
+     f = portfolio_projects_fdv_timeseries('0x')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if immposible_finance:
+     st.header("Here's some charts for Immposible-finance!")
+     f = portfolio_projects_fdv_timeseries('immposible-finance')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if centrifuge:
+     st.header("Here's some charts for Centrifuge!")
+     f = portfolio_projects_fdv_timeseries('centrifuge')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if uma:
+     st.header("Here's some charts for Uma!")
+     f = portfolio_projects_fdv_timeseries('uma')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if dhedge:
+     st.header("Here's some charts for Dhedge!")
+     f = portfolio_projects_fdv_timeseries('dhedge')
+     # Display the plot in Streamlit
+     st.pyplot(f)
+if cosmos:
+     st.header("Here's some charts for Cosmos!")
+     f = portfolio_projects_fdv_timeseries('cosmos')
      # Display the plot in Streamlit
      st.pyplot(f)
