@@ -140,11 +140,11 @@ with st.form('checkbox_form'):
 #dhedge = st.checkbox('dhedge')
 #cosmos = st.checkbox('cosmos')
 
-    if filecoin:
-         st.header("Here's some charts for Filecoin!")
-         f = portfolio_projects_fdv_timeseries('filecoin')
+   if filecoin:
+        st.header("Here's some charts for Filecoin!")
+        f = portfolio_projects_fdv_timeseries('filecoin')
          # Display the plot in Streamlit
-         st.pyplot(f)
+        st.pyplot(f)
     if volmex:
          st.header("Here's some charts for Volmex!")
          #f = portfolio_projects_fdv_timeseries('volmex')
