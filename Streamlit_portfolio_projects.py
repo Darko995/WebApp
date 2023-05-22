@@ -64,6 +64,40 @@ def portfolio_projects_fdv_timeseries(project_id):
     ax.legend(loc='upper right', fontsize=14)
 
     return fig
+def portfolio_projects_mcap_timeseries(project_id):
+      
+    def get_data(data):
+        date = []
+        mcap = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            mcap.append(data[i]['market_cap_circulating'])
+        dataa = [mcap]
+        df = pd.DataFrame(dataa, columns=date, index=['mcap'])
+        df = df.T.dropna()
+        return df
+
+    try :
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+
+        fig, ax = plt.subplots(figsize=(24, 14))
+
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_circulating"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data(data)
+    except KeyError:
+    # Code to handle any other exception
+        pass
+    df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
+    ax.set_title(f"MCAP of {project_id}", fontsize=18)
+    ax.set_xlabel('Date', fontsize=18)
+    ax.set_ylabel('MCAP', fontsize=18)
+    ax.legend(loc='upper left', fontsize=14)
+    ax.legend(loc='upper right', fontsize=14)
+
+    return fig
 
 columns = 3  # Number of columns
 selected_projects = []
@@ -110,3 +144,5 @@ if submitted:
         else:
             f = portfolio_projects_fdv_timeseries(project)
             st.pyplot(f)
+            m = portfolio_projects_mcap_timeseries(project)
+            st.pyplot(m)
