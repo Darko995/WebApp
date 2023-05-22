@@ -95,5 +95,5 @@ liquity = st.checkbox('liquity')
 
 if filecoin:
      st.header("Great! Here's some charts for filecoin")
-     portfolio_projects_fdv_timeseries('filecoin')
+     f = portfolio_projects_fdv_timeseries('filecoin')
      
