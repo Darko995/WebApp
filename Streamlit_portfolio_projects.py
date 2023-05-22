@@ -64,7 +64,6 @@ end_date = st.date_input("End date for report", value=current_date)
 
 st.write ('Which project would you like to check?')
 
-1inch = st.checkbox('1inch')
 volmex = st.checkbox('volmex')
 filecoin = st.checkbox('filecoin')
 polkadot = st.checkbox('1inch')
@@ -74,7 +73,7 @@ dodo = st.checkbox('dodo')
 mina = st.checkbox('mina')
 liquity = st.checkbox('liquity')
 
-if 1inch:
-     st.header("Great! Here's some charts for 1inch")
-     portfolio_projects_fdv_timeseries('1inch')
+if volmex:
+     st.header("Great! Here's some charts for volmex")
+     portfolio_projects_fdv_timeseries('volmex')
      
