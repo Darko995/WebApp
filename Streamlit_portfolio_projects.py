@@ -109,4 +109,4 @@ if submitted:
             f = portfolio_projects_fdv_timeseries(project)
             st.pyplot(f)
         else:
-            pass
+            continue
