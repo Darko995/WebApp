@@ -96,7 +96,7 @@ def portfolio_projects_mcap_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_mcap(data)
-     except KeyError:
+    except KeyError:
         headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
 
         fig, ax = plt.subplots(figsize=(24, 14))
