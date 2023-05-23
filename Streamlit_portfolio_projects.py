@@ -43,6 +43,7 @@ def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data(data)
+        df = df[f'{start_date}':f'{end_date}']
     except KeyError:  
         headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
 
@@ -53,11 +54,10 @@ def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_c(data)
+        df = df[f'{start_date}':f'{end_date}']
     except KeyError:
     # Code to handle any other exception
         pass
-    # Filter the data based on start and end dates
-    df = df.loc[start_date:end_date]
 
     df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
     ax.set_title(f"FDV of {project_id}", fontsize=18)
@@ -99,6 +99,7 @@ def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_mcap(data)
+        df = df[f'{start_date}':f'{end_date}']
     except KeyError:
         headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
 
@@ -109,7 +110,8 @@ def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_mcap_c(data)
-            
+        df = df[f'{start_date}':f'{end_date}']
+      
     # Filter the data based on start and end dates
     df = df.loc[start_date:end_date]
       
@@ -145,6 +147,7 @@ def portfolio_projects_tvl_timeseries(project_id, start_date, end_date):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_tvl(data)
+        df = df[f'{start_date}':f'{end_date}']
         # Filter the data based on start and end dates
         df = df.loc[start_date:end_date]
         df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
@@ -189,6 +192,7 @@ def portfolio_projects_fees_timeseries(project_id, start_date, end_date):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_fees(data)
+        df = df[f'{start_date}':f'{end_date}']
         # Filter the data based on start and end dates
         df = df.loc[start_date:end_date]
         df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
