@@ -251,7 +251,7 @@ if submitted:
     end_date = st.date_input("Select end date:")
     # Display charts for selected projects
     for project in selected_projects:
-        st.header(f"Here's some charts for {project.capitalize()}!"}
+        st.header(f"Here's some charts for {project.capitalize()}!")
         f = portfolio_projects_fdv_timeseries(project)
         st.subheader("Fully diluted valuation")
         st.pyplot(f)
