@@ -243,12 +243,11 @@ with st.form('checkbox_form'):
                 # Add the selected project to the list
                 if checkbox_value:
                     selected_projects.append(checkbox_labels[index])
-
+    start_date = st.date_input("Select start date:")
+    end_date = st.date_input("Select end date:")
     submitted = st.form_submit_button('Submit')
 
 if submitted:
-    start_date = st.date_input("Select start date:")
-    end_date = st.date_input("Select end date:")
     # Display charts for selected projects
     for project in selected_projects:
         st.header(f"Here's some charts for {project.capitalize()}!")
