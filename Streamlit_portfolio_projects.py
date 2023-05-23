@@ -158,6 +158,49 @@ def portfolio_projects_tvl_timeseries(project_id):
 
         return fig
 
+def portfolio_projects_fees_timeseries(project_id):
+      
+    def get_data_fees(data):
+        date = []
+        fees = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fees.append(data[i]['fees'])
+        dataa = [fees]
+        df = pd.DataFrame(dataa, columns=date, index=['fees'])
+        df = df.T.dropna()
+        return df
+    try:
+      
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+
+        fig, ax = plt.subplots(figsize=(24, 14))
+
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=fees"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data_fees(data)
+      
+        df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
+        ax.set_title(f"FEES of {project_id}", fontsize=18)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('FEES', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+    except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} FEES!", fontsize=24)
+        #ax.set_xlabel('Date', fontsize=18)
+        #ax.set_ylabel('TVL', fontsize=18)
+        #ax.legend(loc='upper left', fontsize=14)
+        #ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+      
 columns = 3  # Number of columns
 selected_projects = []
 
@@ -207,3 +250,6 @@ if submitted:
         st.subheader("Total value locked")
         t = portfolio_projects_tvl_timeseries(project)
         st.pyplot(t)
+        st.subheader("Fees")
+        fees = portfolio_projects_fees_timeseries(project)
+        st.pyplot(fees)
