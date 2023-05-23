@@ -60,7 +60,7 @@ def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
         pass
 
     df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
-    ax.set_title(f"FDV of {project_id}", fontsize=18)
+    ax.set_title(f"FDV of {project_id} from {start_date} to {end_date}", fontsize=28)
     ax.set_xlabel('Date', fontsize=18)
     ax.set_ylabel('FDV', fontsize=18)
     ax.legend(loc='upper left', fontsize=14)
@@ -113,7 +113,7 @@ def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
         df = df[f'{start_date}':f'{end_date}']
       
     df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
-    ax.set_title(f"MCAP of {project_id}", fontsize=18)
+    ax.set_title(f"MCAP of {project_id} from {start_date} to {end_date}", fontsize=28)
     ax.set_xlabel('Date', fontsize=18)
     ax.set_ylabel('MCAP', fontsize=18)
     ax.legend(loc='upper left', fontsize=14)
@@ -146,7 +146,7 @@ def portfolio_projects_tvl_timeseries(project_id, start_date, end_date):
         df = get_data_tvl(data)
         df = df[f'{start_date}':f'{end_date}']
         df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
-        ax.set_title(f"TVL of {project_id}", fontsize=18)
+        ax.set_title(f"TVL of {project_id} from {start_date} to {end_date}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('TVL', fontsize=18)
         ax.legend(loc='upper left', fontsize=14)
@@ -189,7 +189,7 @@ def portfolio_projects_fees_timeseries(project_id, start_date, end_date):
         df = get_data_fees(data)
         df = df[f'{start_date}':f'{end_date}']
         df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
-        ax.set_title(f"FEES of {project_id}", fontsize=18)
+        ax.set_title(f"FEES of {project_id} from {start_date} to {end_date}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('FEES', fontsize=18)
         ax.legend(loc='upper left', fontsize=14)
@@ -234,12 +234,12 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
         ax.plot(d_weekly["fees/tvl"], label="fees/tvl")
 
         # Get the current value of tvl/ss_fees
-        current_value = d_weekly["fees/tvl"].iloc[-1]
+        #current_value = d_weekly["fees/tvl"].iloc[-1]
 
         # Add current value as text to the plot
-        ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
+        #ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
 
-        ax.set_title(f"{project_id} Fees and TVL ratio from {start_date} to {end_date}", fontsize=18)
+        ax.set_title(f"{project_id} Fees and TVL ratio from {start_date} to {end_date}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('Ratio', fontsize=18)
         return fig     
