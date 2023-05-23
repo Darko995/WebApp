@@ -112,9 +112,6 @@ def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
         df = get_data_mcap_c(data)
         df = df[f'{start_date}':f'{end_date}']
       
-    # Filter the data based on start and end dates
-    df = df.loc[start_date:end_date]
-      
     df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
     ax.set_title(f"MCAP of {project_id}", fontsize=18)
     ax.set_xlabel('Date', fontsize=18)
@@ -148,8 +145,6 @@ def portfolio_projects_tvl_timeseries(project_id, start_date, end_date):
         data = data_shows['data']
         df = get_data_tvl(data)
         df = df[f'{start_date}':f'{end_date}']
-        # Filter the data based on start and end dates
-        df = df.loc[start_date:end_date]
         df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
         ax.set_title(f"TVL of {project_id}", fontsize=18)
         ax.set_xlabel('Date', fontsize=18)
@@ -193,8 +188,6 @@ def portfolio_projects_fees_timeseries(project_id, start_date, end_date):
         data = data_shows['data']
         df = get_data_fees(data)
         df = df[f'{start_date}':f'{end_date}']
-        # Filter the data based on start and end dates
-        df = df.loc[start_date:end_date]
         df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
         ax.set_title(f"FEES of {project_id}", fontsize=18)
         ax.set_xlabel('Date', fontsize=18)
