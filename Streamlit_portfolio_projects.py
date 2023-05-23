@@ -127,17 +127,16 @@ def portfolio_projects_tvl_timeseries(project_id):
         df = pd.DataFrame(dataa, columns=date, index=['tvl'])
         df = df.T.dropna()
         return df
-  
-    try :
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+ 
+    headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
 
-        fig, ax = plt.subplots(figsize=(24, 14))
+    fig, ax = plt.subplots(figsize=(24, 14))
 
-        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=tvl"
-        response = requests.get(url, headers=headers)
-        data_shows = json.loads(response.text)
-        data = data_shows['data']
-        df = get_data_tvl(data)
+    url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=tvl"
+    response = requests.get(url, headers=headers)
+    data_shows = json.loads(response.text)
+    data = data_shows['data']
+    df = get_data_tvl(data)
       
     df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
     ax.set_title(f"TVL of {project_id}", fontsize=18)
