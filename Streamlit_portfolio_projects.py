@@ -200,13 +200,55 @@ def portfolio_projects_fees_timeseries(project_id, start_date, end_date):
         fig, ax = plt.subplots(figsize=(24, 4))
 
         ax.set_title(f"Sorry, there is no available data for {project_id} FEES!", fontsize=24)
-        #ax.set_xlabel('Date', fontsize=18)
-        #ax.set_ylabel('TVL', fontsize=18)
-        #ax.legend(loc='upper left', fontsize=14)
-        #ax.legend(loc='upper right', fontsize=14)
-
         return fig
       
+def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
+    def get_data_r1(data):
+        date = []
+        TVL = []
+        fees = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            TVL.append(data[i]['tvl'])
+            fees.append(data[i]['fees'])
+        dataa = [TVL, fees]
+        df = pd.DataFrame(dataa, columns=date, index=['TVL', 'fees'])
+        df = df.T.dropna()
+        return df
+    try:
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=tvl%2Cfees"
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        d = get_data_r1(data)
+        d = d[::-1]
+        d['fees'] = d['fees'].rolling(30).sum().dropna()
+        d['fees'] = d['fees'] * (365 / 30)
+        d['fees/tvl'] = d['fees']/d['TVL']
+        d = d[f'{start_date}':f'{end_date}']
+        # Resample the data to weekly frequency
+        d_weekly = d.resample('W').last()
+
+        fig, ax = plt.subplots(figsize=(30, 12))
+        ax.plot(d_weekly["fees/tvl"], label="fees/tvl")
+
+        # Get the current value of tvl/ss_fees
+        current_value = d_weekly["fees/tvl"].iloc[-1]
+
+        # Add current value as text to the plot
+        ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
+
+        ax.set_title(f"{project_id} Fees and TVL ratio from {start_date} to {end_date}", fontsize=18)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Ratio', fontsize=18)
+        return fig     
+except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} TVL or FEES!", fontsize=24)
+
+        return fig
 columns = 3  # Number of columns
 selected_projects = []
 
