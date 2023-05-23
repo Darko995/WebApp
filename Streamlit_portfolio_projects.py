@@ -148,8 +148,7 @@ def portfolio_projects_tvl_timeseries(project_id):
 
         return fig
     except KeyError:
-        r = "No available data for this project"
-        return r
+        pass
 
 columns = 3  # Number of columns
 selected_projects = []
