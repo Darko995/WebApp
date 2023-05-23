@@ -148,7 +148,15 @@ def portfolio_projects_tvl_timeseries(project_id):
 
         return fig
     except KeyError:
-        pass
+        fig, ax = plt.subplots(figsize=(24, 14))
+
+        ax.set_title(f"No available data for {project_id}!", fontsize=18)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('TVL', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
 
 columns = 3  # Number of columns
 selected_projects = []
