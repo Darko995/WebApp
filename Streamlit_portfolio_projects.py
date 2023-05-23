@@ -10,7 +10,7 @@ import pandas as pd
 import yfinance as yf
 import datetime 
 
-def portfolio_projects_fdv_timeseries(project_id):
+def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
       
     def get_data(data):
         date = []
@@ -56,6 +56,9 @@ def portfolio_projects_fdv_timeseries(project_id):
     except KeyError:
     # Code to handle any other exception
         pass
+    # Filter the data based on start and end dates
+    df = df.loc[start_date:end_date]
+
     df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
     ax.set_title(f"FDV of {project_id}", fontsize=18)
     ax.set_xlabel('Date', fontsize=18)
@@ -64,7 +67,7 @@ def portfolio_projects_fdv_timeseries(project_id):
     ax.legend(loc='upper right', fontsize=14)
 
     return fig
-def portfolio_projects_mcap_timeseries(project_id):
+def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
       
     def get_data_mcap(data):
         date = []
@@ -106,6 +109,10 @@ def portfolio_projects_mcap_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_mcap_c(data)
+            
+    # Filter the data based on start and end dates
+    df = df.loc[start_date:end_date]
+      
     df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
     ax.set_title(f"MCAP of {project_id}", fontsize=18)
     ax.set_xlabel('Date', fontsize=18)
@@ -115,7 +122,7 @@ def portfolio_projects_mcap_timeseries(project_id):
 
     return fig
 
-def portfolio_projects_tvl_timeseries(project_id):
+def portfolio_projects_tvl_timeseries(project_id, start_date, end_date):
       
     def get_data_tvl(data):
         date = []
@@ -138,7 +145,8 @@ def portfolio_projects_tvl_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_tvl(data)
-      
+        # Filter the data based on start and end dates
+        df = df.loc[start_date:end_date]
         df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
         ax.set_title(f"TVL of {project_id}", fontsize=18)
         ax.set_xlabel('Date', fontsize=18)
@@ -158,7 +166,7 @@ def portfolio_projects_tvl_timeseries(project_id):
 
         return fig
 
-def portfolio_projects_fees_timeseries(project_id):
+def portfolio_projects_fees_timeseries(project_id, start_date, end_date):
       
     def get_data_fees(data):
         date = []
@@ -181,7 +189,8 @@ def portfolio_projects_fees_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_fees(data)
-      
+        # Filter the data based on start and end dates
+        df = df.loc[start_date:end_date]
         df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
         ax.set_title(f"FEES of {project_id}", fontsize=18)
         ax.set_xlabel('Date', fontsize=18)
@@ -238,9 +247,11 @@ with st.form('checkbox_form'):
     submitted = st.form_submit_button('Submit')
 
 if submitted:
+    start_date = st.date_input("Select start date:")
+    end_date = st.date_input("Select end date:")
     # Display charts for selected projects
     for project in selected_projects:
-        st.header(f"Here's some charts for {project.capitalize()}!")
+        st.header(f"Here's some charts for {project.capitalize()}!"}
         f = portfolio_projects_fdv_timeseries(project)
         st.subheader("Fully diluted valuation")
         st.pyplot(f)
