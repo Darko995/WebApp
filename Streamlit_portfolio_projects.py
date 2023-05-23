@@ -122,7 +122,7 @@ def portfolio_projects_tvl_timeseries(project_id):
         tvl = []
         for i in range(len(data)):
             date.append(pd.to_datetime((data[i]['timestamp'])))
-            mcap.append(data[i]['tvl'])
+            tvl.append(data[i]['tvl'])
         dataa = [tvl]
         df = pd.DataFrame(dataa, columns=date, index=['tvl'])
         df = df.T.dropna()
