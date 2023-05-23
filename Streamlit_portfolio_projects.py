@@ -138,13 +138,11 @@ def portfolio_projects_tvl_timeseries(project_id):
         data_shows = json.loads(response.text)
         data = data_shows['data']
         df = get_data_tvl(data)
-    except KeyError:
-        pass
       
     df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
     ax.set_title(f"TVL of {project_id}", fontsize=18)
     ax.set_xlabel('Date', fontsize=18)
-    ax.set_ylabel('MCAP', fontsize=18)
+    ax.set_ylabel('TVL', fontsize=18)
     ax.legend(loc='upper left', fontsize=14)
     ax.legend(loc='upper right', fontsize=14)
 
