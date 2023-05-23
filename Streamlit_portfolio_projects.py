@@ -243,7 +243,7 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('Ratio', fontsize=18)
         return fig     
-except KeyError:
+    except KeyError:
         fig, ax = plt.subplots(figsize=(24, 4))
 
         ax.set_title(f"Sorry, there is no available data for {project_id} TVL or FEES!", fontsize=24)
