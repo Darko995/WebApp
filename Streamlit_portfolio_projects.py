@@ -302,3 +302,6 @@ if submitted:
         st.subheader("Fees")
         fees = portfolio_projects_fees_timeseries(project,start_date,end_date)
         st.pyplot(fees)
+        st.subheader("Fees/TVL Ratio")
+        ftvl = portfolio_projects_fees_tvl_ratio(project,start_date,end_date)
+        st.pyplot(ftvl)
