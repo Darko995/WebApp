@@ -133,11 +133,11 @@ def portfolio_projects_tvl_timeseries(project_id):
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
-        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_circulating"
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=tvl"
         response = requests.get(url, headers=headers)
         data_shows = json.loads(response.text)
         data = data_shows['data']
-        df = get_data_mcap(data)
+        df = get_data_tvl(data)
     except KeyError:
         pass
       
