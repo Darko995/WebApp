@@ -461,39 +461,39 @@ if submitted:
     for project in selected_projects:
         
         st.header(f"Here's some charts for {project.capitalize()}!")
-        if 'FDV' in charts:
+        if 'FDV' in chart:
             f = portfolio_projects_fdv_timeseries(project,start_date,end_date)
             st.subheader("Fully diluted valuation")
             st.pyplot(f)
-        if 'MCAP' in charts:
+        if 'MCAP' in chart:
             st.subheader("Market capitalization")
             m = portfolio_projects_mcap_timeseries(project,start_date,end_date)
             st.pyplot(m)
-        if 'TVL' in charts:
+        if 'TVL' in chart:
             st.subheader("Total value locked")
             t = portfolio_projects_tvl_timeseries(project,start_date,end_date)
             st.pyplot(t)
-        if 'FEES' in charts:
+        if 'FEES' in chart:
             st.subheader("Fees")
             fees = portfolio_projects_fees_timeseries(project,start_date,end_date)
             st.pyplot(fees)
-        if 'FEES/TVL' in charts:
+        if 'FEES/TVL' in chart:
             st.subheader("Fees/TVL Ratio")
             ftvl = portfolio_projects_fees_tvl_ratio(project,start_date,end_date)
             st.pyplot(ftvl)
-        if 'Tokenholders' in charts:
+        if 'Tokenholders' in chart:
             st.subheader("Tokenholders Number")
             th = portfolio_projects_tokenholders_timeseries(project,start_date,end_date)
             st.pyplot(th)
-        if 'Active Developers' in charts:
+        if 'Active Developers' in chart:
             st.subheader("Active developers Number")
             th = portfolio_projects_active_developers_timeseries(project,start_date,end_date)
             st.pyplot(th)
-        if 'Code Commits' in charts:
+        if 'Code Commits' in chart:
             st.subheader("Weekly Code Commits Number")
             cc = portfolio_projects_code_commits_timeseries(project,start_date,end_date)
             st.pyplot(cc)
-        if 'Trading Volume' in charts:
+        if 'Trading Volume' in chart:
             st.subheader("Token Trading Volume")
             tv = portfolio_projects_trading_volume_timeseries(project,start_date,end_date)
             st.pyplot(tv)
