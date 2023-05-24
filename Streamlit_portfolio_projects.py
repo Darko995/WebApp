@@ -10,6 +10,19 @@ import pandas as pd
 import yfinance as yf
 import datetime 
 
+st.set_page_config(page_title="Portfolio Priority projects", page_icon="🧐", layout="wide")
+# ---- SIDEBAR ----
+st.sidebar.header("Please Filter Timeseries Here:")
+chart = st.sidebar.multiselect(
+    "Select the Metric:",
+    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume'],
+    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume']
+)
+
+# ---- MAINPAGE ----
+st.title(":bar_chart: Portfolio Priority projects")
+st.markdown("##")
+
 def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
       
     def get_data(data):
