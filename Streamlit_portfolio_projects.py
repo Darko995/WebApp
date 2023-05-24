@@ -283,7 +283,7 @@ def portfolio_projects_tokenholders_timeseries(project_id, start_date):
         ax.legend(loc='upper right', fontsize=14)
 
         return fig
-except KeyError:
+    except KeyError:
         fig, ax = plt.subplots(figsize=(24, 4))
 
         ax.set_title(f"Sorry, there is no available data for {project_id} Tokenholders number!", fontsize=24)
