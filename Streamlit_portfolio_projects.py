@@ -356,7 +356,7 @@ def portfolio_projects_code_commits_timeseries(project_id, start_date,end_date):
         d_weekly['code_commits'].plot(color='crimson', ax=ax, label=f'{project_id} code_commits')
         ax.set_title(f"Code commits of {project_id}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
-        ax.set_ylabel('Code commits number', fontsize=18)
+        ax.set_ylabel('Weekly Code commits number', fontsize=18)
         ax.legend(loc='upper left', fontsize=14)
         ax.legend(loc='upper right', fontsize=14)
 
@@ -429,6 +429,6 @@ if submitted:
         st.subheader("Active developers Number")
         th = portfolio_projects_active_developers_timeseries(project,start_date,end_date)
         st.pyplot(th)
-        st.subheader("Code Commits Number")
+        st.subheader("Weekly Code Commits Number")
         cc = portfolio_projects_code_commits_timeseries(project,start_date,end_date)
         st.pyplot(cc)
