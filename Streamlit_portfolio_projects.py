@@ -415,11 +415,11 @@ with st.form('checkbox_form'):
 
     # List of checkbox labels
     checkbox_labels = [
-        'polkadot', 'arbitrum', 'mux',
+        'arbitrum', 'mux',
         'dodo', 'mina', 'liquity', '1inch', 'avalanche',
         'makerdao', 'near-protocol', 'synthetix', 'kyberswap',
         'conflux', '0x', 'centrifuge',
-        'uma', 'dhedge', 'cosmos','filecoin'
+        'uma', 'dhedge', 'cosmos','filecoin', 'polkadot'
     ]
 
     # Calculate the number of rows
