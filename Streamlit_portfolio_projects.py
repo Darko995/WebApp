@@ -415,8 +415,8 @@ with st.form('checkbox_form'):
 
     # List of checkbox labels
     checkbox_labels = [
-        'arbitrum', 'mux',
-        'dodo', 'mina', 'liquity', '1inch', 'avalanche',
+        'dodo','liquity', 'avalanche','arbitrum', 'mux',
+        'mina','1inch',
         'makerdao', 'near-protocol', 'synthetix', 'kyberswap',
         'conflux', '0x', 'centrifuge',
         'uma', 'dhedge', 'cosmos','filecoin', 'polkadot'
