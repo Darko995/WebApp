@@ -311,7 +311,7 @@ def portfolio_projects_active_developers_timeseries(project_id, start_date,end_d
         response = requests.get(url, headers=headers)
         data_shows = json.loads(response.text)
         data = data_shows['data']
-        df = get_data_tokenholders(data)
+        df = get_data_active_developers(data)
         df = df[f'{start_date}':f'{end_date}']
         
         df['active_developers'].plot(color='crimson', ax=ax, label=f'{project_id} active_developers')
