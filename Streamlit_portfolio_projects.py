@@ -250,8 +250,7 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
 
         return fig
       
-def portfolio_projects_tokenholders_timeseries(project_id, start_date):
-
+def portfolio_projects_tokenholders_timeseries(project_id, start_date,end_date):
       
     def get_data_tokenholders(data):
         date = []
