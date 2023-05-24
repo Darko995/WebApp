@@ -488,3 +488,13 @@ if submitted:
         st.subheader("Token Trading Volume")
         tv = portfolio_projects_trading_volume_timeseries(project,start_date,end_date)
         st.pyplot(tv)
+        
+# ---- HIDE STREAMLIT STYLE ----
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
