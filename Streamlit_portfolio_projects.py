@@ -18,7 +18,7 @@ chart = st.sidebar.multiselect(
     options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume'],
     default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume']
 )
-
+st.write(chart)
 # ---- MAINPAGE ----
 st.title(":bar_chart: Portfolio Priority projects")
 st.markdown("##")
