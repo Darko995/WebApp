@@ -366,7 +366,47 @@ def portfolio_projects_code_commits_timeseries(project_id, start_date,end_date):
 
         ax.set_title(f"Sorry, there is no available data for {project_id} Code commits number!", fontsize=24)
 
-        return fig      
+        return fig  
+      
+def portfolio_projects_trading_volume_timeseries(project_id, start_date,end_date):
+      
+    def get_data_trading_volume(data):
+        date = []
+        trading_volume = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            trading_volume.append(data[i]['trading_volume'])
+        dataa = [trading_volume]
+        df = pd.DataFrame(dataa, columns=date, index=['trading_volume'])
+        df = df.T.dropna()
+        return df
+    try:
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+    
+        fig, ax = plt.subplots(figsize=(24, 14))
+    
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=token_trading_volume"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data_trading_volume(data)
+        df = df[f'{start_date}':f'{end_date}']
+      
+        df['trading_volume'].plot(color='crimson', ax=ax, label=f'{project_id} trading_volume')
+        ax.set_title(f"Trading volume of {project_id}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Trading volume number', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+    except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} Trading volume!", fontsize=24)
+
+        return fig 
+      
 columns = 3  # Number of columns
 selected_projects = []
 
@@ -432,3 +472,6 @@ if submitted:
         st.subheader("Weekly Code Commits Number")
         cc = portfolio_projects_code_commits_timeseries(project,start_date,end_date)
         st.pyplot(cc)
+        st.subheader("Token Trading Volume")
+        tv = portfolio_projects_trading_volume_timeseries(project,start_date,end_date)
+        st.pyplot(tv)
