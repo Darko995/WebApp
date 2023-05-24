@@ -372,12 +372,12 @@ def portfolio_projects_trading_volume_timeseries(project_id, start_date,end_date
       
     def get_data_trading_volume(data):
         date = []
-        trading_volume = []
+        token_trading_volume = []
         for i in range(len(data)):
             date.append(pd.to_datetime((data[i]['timestamp'])))
-            trading_volume.append(data[i]['trading_volume'])
-        dataa = [trading_volume]
-        df = pd.DataFrame(dataa, columns=date, index=['trading_volume'])
+            token_trading_volume.append(data[i]['token_trading_volume'])
+        dataa = [token_trading_volume]
+        df = pd.DataFrame(dataa, columns=date, index=['token_trading_volume'])
         df = df.T.dropna()
         return df
     try:
@@ -392,7 +392,7 @@ def portfolio_projects_trading_volume_timeseries(project_id, start_date,end_date
         df = get_data_trading_volume(data)
         df = df[f'{start_date}':f'{end_date}']
       
-        df['trading_volume'].plot(color='crimson', ax=ax, label=f'{project_id} trading_volume')
+        df['token_trading_volume'].plot(color='crimson', ax=ax, label=f'{project_id} token_trading_volume')
         ax.set_title(f"Trading volume of {project_id}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('Trading volume number', fontsize=18)
