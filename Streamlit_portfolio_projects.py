@@ -460,34 +460,44 @@ with st.form('checkbox_form'):
 if submitted:
     # Display charts for selected projects
     for project in selected_projects:
+        
         st.header(f"Here's some charts for {project.capitalize()}!")
-        f = portfolio_projects_fdv_timeseries(project,start_date,end_date)
-        st.subheader("Fully diluted valuation")
-        st.pyplot(f)
-        st.subheader("Market capitalization")
-        m = portfolio_projects_mcap_timeseries(project,start_date,end_date)
-        st.pyplot(m)
-        st.subheader("Total value locked")
-        t = portfolio_projects_tvl_timeseries(project,start_date,end_date)
-        st.pyplot(t)
-        st.subheader("Fees")
-        fees = portfolio_projects_fees_timeseries(project,start_date,end_date)
-        st.pyplot(fees)
-        st.subheader("Fees/TVL Ratio")
-        ftvl = portfolio_projects_fees_tvl_ratio(project,start_date,end_date)
-        st.pyplot(ftvl)
-        st.subheader("Tokenholders Number")
-        th = portfolio_projects_tokenholders_timeseries(project,start_date,end_date)
-        st.pyplot(th)
-        st.subheader("Active developers Number")
-        th = portfolio_projects_active_developers_timeseries(project,start_date,end_date)
-        st.pyplot(th)
-        st.subheader("Weekly Code Commits Number")
-        cc = portfolio_projects_code_commits_timeseries(project,start_date,end_date)
-        st.pyplot(cc)
-        st.subheader("Token Trading Volume")
-        tv = portfolio_projects_trading_volume_timeseries(project,start_date,end_date)
-        st.pyplot(tv)
+        if 'FDV' in charts:
+            f = portfolio_projects_fdv_timeseries(project,start_date,end_date)
+            st.subheader("Fully diluted valuation")
+            st.pyplot(f)
+        if 'MCAP' in charts:
+            st.subheader("Market capitalization")
+            m = portfolio_projects_mcap_timeseries(project,start_date,end_date)
+            st.pyplot(m)
+        if 'TVL' in charts:
+            st.subheader("Total value locked")
+            t = portfolio_projects_tvl_timeseries(project,start_date,end_date)
+            st.pyplot(t)
+        if 'FEES' in charts:
+            st.subheader("Fees")
+            fees = portfolio_projects_fees_timeseries(project,start_date,end_date)
+            st.pyplot(fees)
+        if 'FEES/TVL' in charts:
+            st.subheader("Fees/TVL Ratio")
+            ftvl = portfolio_projects_fees_tvl_ratio(project,start_date,end_date)
+            st.pyplot(ftvl)
+        if 'Tokenholders' in charts:
+            st.subheader("Tokenholders Number")
+            th = portfolio_projects_tokenholders_timeseries(project,start_date,end_date)
+            st.pyplot(th)
+        if 'Active Developers' in charts:
+            st.subheader("Active developers Number")
+            th = portfolio_projects_active_developers_timeseries(project,start_date,end_date)
+            st.pyplot(th)
+        if 'Code Commits' in charts:
+            st.subheader("Weekly Code Commits Number")
+            cc = portfolio_projects_code_commits_timeseries(project,start_date,end_date)
+            st.pyplot(cc)
+        if 'Trading Volume' in charts:
+            st.subheader("Token Trading Volume")
+            tv = portfolio_projects_trading_volume_timeseries(project,start_date,end_date)
+            st.pyplot(tv)
         
 # ---- HIDE STREAMLIT STYLE ----
 #hide_st_style = """
