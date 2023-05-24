@@ -34,7 +34,7 @@ def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
         df = df.T.dropna()
         return df
     try :
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
@@ -45,7 +45,7 @@ def portfolio_projects_fdv_timeseries(project_id, start_date, end_date):
         df = get_data(data)
         df = df[f'{start_date}':f'{end_date}']
     except KeyError:  
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
@@ -90,7 +90,7 @@ def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
         df = df.T.dropna()
         return df
     try :
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
@@ -101,7 +101,7 @@ def portfolio_projects_mcap_timeseries(project_id, start_date, end_date):
         df = get_data_mcap(data)
         df = df[f'{start_date}':f'{end_date}']
     except KeyError:
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
@@ -135,7 +135,7 @@ def portfolio_projects_tvl_timeseries(project_id, start_date, end_date):
         return df
     try:
       
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
@@ -178,7 +178,7 @@ def portfolio_projects_fees_timeseries(project_id, start_date, end_date):
         return df
     try:
       
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
 
         fig, ax = plt.subplots(figsize=(24, 14))
 
@@ -217,7 +217,7 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
         return df
     try:
         url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=tvl%2Cfees"
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
         response = requests.get(url, headers=headers)
         data_shows = json.loads(response.text)
         data = data_shows['data']
@@ -263,7 +263,7 @@ def portfolio_projects_tokenholders_timeseries(project_id, start_date,end_date):
         df = df.T.dropna()
         return df
     try:
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
     
         fig, ax = plt.subplots(figsize=(24, 14))
     
@@ -303,7 +303,7 @@ def portfolio_projects_active_developers_timeseries(project_id, start_date,end_d
         df = df.T.dropna()
         return df
     try:
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
     
         fig, ax = plt.subplots(figsize=(24, 14))
     
@@ -341,7 +341,7 @@ def portfolio_projects_code_commits_timeseries(project_id, start_date,end_date):
         df = df.T.dropna()
         return df
     try:
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
     
         fig, ax = plt.subplots(figsize=(24, 14))
     
@@ -381,7 +381,7 @@ def portfolio_projects_trading_volume_timeseries(project_id, start_date,end_date
         df = df.T.dropna()
         return df
     try:
-        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+        headers = {"Authorization": st.secrets["APY_KEY"]}
     
         fig, ax = plt.subplots(figsize=(24, 14))
     
