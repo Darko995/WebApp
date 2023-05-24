@@ -249,6 +249,46 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
         ax.set_title(f"Sorry, there is no available data for {project_id} TVL or FEES!", fontsize=24)
 
         return fig
+      
+def portfolio_projects_tokenholders_timeseries(project_id, start_date):
+
+      
+    def get_data_tokenholders(data):
+        date = []
+        tokenholders = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            tokenholders.append(data[i]['tokenholders'])
+        dataa = [tokenholders]
+        df = pd.DataFrame(dataa, columns=date, index=['tokenholders'])
+        df = df.T.dropna()
+        return df
+    try:
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+    
+        fig, ax = plt.subplots(figsize=(24, 14))
+    
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=tokenholders"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data_tokenholders(data)
+        df = df[f'{start_date}':f'{end_date}']
+        
+        df['tokenholders'].plot(color='crimson', ax=ax, label=f'{project_id} tokenholders')
+        ax.set_title(f"Tokenholders of {project_id}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Tokenholders number', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} Tokenholders number!", fontsize=24)
+
+        return fig      
 columns = 3  # Number of columns
 selected_projects = []
 
@@ -305,3 +345,6 @@ if submitted:
         st.subheader("Fees/TVL Ratio")
         ftvl = portfolio_projects_fees_tvl_ratio(project,start_date,end_date)
         st.pyplot(ftvl)
+        st.subheader("Tokenholders Number")
+        th = portfolio_projects_tokenholders_timeseries(project,start_date,end_date)
+        st.pyplot(th)
