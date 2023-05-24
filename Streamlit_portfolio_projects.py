@@ -353,7 +353,7 @@ def portfolio_projects_code_commits_timeseries(project_id, start_date,end_date):
         df = df[f'{start_date}':f'{end_date}']
         d_weekly = df.resample('W').sum()
       
-        df_weekly['code_commits'].plot(color='crimson', ax=ax, label=f'{project_id} code_commits')
+        d_weekly['code_commits'].plot(color='crimson', ax=ax, label=f'{project_id} code_commits')
         ax.set_title(f"Code commits of {project_id}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('Code commits number', fontsize=18)
