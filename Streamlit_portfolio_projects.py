@@ -328,7 +328,44 @@ def portfolio_projects_active_developers_timeseries(project_id, start_date,end_d
         ax.set_title(f"Sorry, there is no available data for {project_id} Active developers number!", fontsize=24)
 
         return fig
+def portfolio_projects_code_commits_timeseries(project_id, start_date,end_date):
       
+    def get_data_code_commits(data):
+        date = []
+        code_commits = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            code_commits.append(data[i]['code_commits'])
+        dataa = [code_commits]
+        df = pd.DataFrame(dataa, columns=date, index=['code_commits'])
+        df = df.T.dropna()
+        return df
+    try:
+        headers = {"Authorization": "Bearer 3365c8fd-ade3-410f-99e4-9c82d9831f0b"}
+    
+        fig, ax = plt.subplots(figsize=(24, 14))
+    
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=code_commits"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data_code_commits(data)
+        df = df[f'{start_date}':f'{end_date}']
+        
+        df['code_commits'].plot(color='crimson', ax=ax, label=f'{project_id} code_commits')
+        ax.set_title(f"Code commits of {project_id}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Code commits number', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+    except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} Code commits number!", fontsize=24)
+
+        return fig      
 columns = 3  # Number of columns
 selected_projects = []
 
@@ -391,3 +428,6 @@ if submitted:
         st.subheader("Active developers Number")
         th = portfolio_projects_active_developers_timeseries(project,start_date,end_date)
         st.pyplot(th)
+        st.subheader("Code Commits Number")
+        cc = portfolio_projects_code_commits_timeseries(project,start_date,end_date)
+        st.pyplot(cc)
