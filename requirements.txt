@@ -1,4 +1,4 @@
 pandas_profiling
 streamlit_pandas_profiling
 yfinance
-streamlit_authenticator
+streamlit-authenticator
