@@ -263,6 +263,46 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
         ax.set_title(f"Sorry, there is no available data for {project_id} TVL or FEES!", fontsize=24)
 
         return fig
+def portfolio_projects_volatility_timeseries(project_id, start_date,end_date):
+      
+    def get_data_price(data):
+        date = []
+        price = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            price.append(data[i]['price'])
+        dataa = [price]
+        df = pd.DataFrame(dataa, columns=date, index=['price'])
+        df = df.T.dropna()
+        return df
+    try:
+        headers = {"Authorization": st.secrets["APY_KEY"]}
+    
+        fig, ax = plt.subplots(figsize=(24, 14))
+    
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=price"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data_price(data)
+        df = df[f'{start_date}':f'{end_date}']
+        df_lr = (np.log(df['price'])-np.log(df['price'].shift(1)))[1:].dropna()
+        ann_vol_df = np.std(df_lr[-365:])*np.sqrt(365)*100
+
+        ann_vol_df.plot(color='crimson', ax=ax, label=f'{project_id} volatility')
+        ax.set_title(f"Annualized volatility of {project_id}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Volatility', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+    except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} Price!", fontsize=24)
+
+        return fig 
 def portfolio_projects_fdv_fees_ratio(project_id, start_date,end_date):
     def get_data_r2(data):
         date = []
@@ -825,3 +865,7 @@ if submitted:
             st.subheader("FDV/Active Developers Number Ratio")
             fdvcc = portfolio_projects_fdv_active_developers_ratio(project,start_date,end_date)
             st.pyplot(fdvcc)
+        if 'Ann Volatility' in chart:
+            st.subheader("Annualized Volatility")
+            vol = portfolio_projects_volatility_timeseries(project,start_date,end_date)
+            st.pyplot(vol)
