@@ -15,8 +15,8 @@ st.set_page_config(page_title="Portfolio Priority projects", page_icon="🧐", l
 st.sidebar.header("Please Filter Timeseries Here:")
 chart = st.sidebar.multiselect(
     "Select the Metric:",
-    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES'],
-    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES']
+    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES','FDV/Tokenholders'],
+    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES','FDV/Tokenholders']
 )
 # ---- MAINPAGE ----
 st.title(":bar_chart: Portfolio Priority projects")
