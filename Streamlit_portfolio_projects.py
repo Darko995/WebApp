@@ -15,8 +15,10 @@ st.set_page_config(page_title="Portfolio Priority projects", page_icon="🧐", l
 st.sidebar.header("Please Filter Timeseries Here:")
 chart = st.sidebar.multiselect(
     "Select the Metric:",
-    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES','FDV/Tokenholders'],
-    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES','FDV/Tokenholders']
+    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price',
+             'Earnings','FDV/FEES','FDV/Tokenholders','FDV/Code Commits'],
+    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price',
+             'Earnings','FDV/FEES','FDV/Tokenholders','FDV/Code Commits']
 )
 # ---- MAINPAGE ----
 st.title(":bar_chart: Portfolio Priority projects")
@@ -421,7 +423,78 @@ def portfolio_projects_fdv_tokenholders_ratio(project_id, start_date,end_date):
             ax.set_title(f"Sorry, there is no available data for {project_id} Tokenholders number!", fontsize=24)
 
             return fig
+def portfolio_projects_fdv_code_commits_ratio(project_id, start_date,end_date):
+    def get_data_r4(data):
+        date = []
+        fdv = []
+        code_commits = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fdv.append(data[i]['market_cap_fully_diluted'])
+            code_commits.append(data[i]['code_commits'])
+        dataa = [fdv, code_commits]
+        df = pd.DataFrame(dataa, columns=date, index=['fdv', 'code_commits'])
+        df = df.T.dropna()
+        return df
+    def get_data_r44(data):
+        date = []
+        fdv = []
+        code_commits = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fdv.append(data[i]['market_cap_circulating'])
+            code_commits.append(data[i]['code_commits'])
+        dataa = [fdv, code_commits]
+        df = pd.DataFrame(dataa, columns=date, index=['fdv', 'code_commits'])
+        df = df.T.dropna()
+        return df
+    try:
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_fully_diluted%2Ccode_commits"
+        headers = {"Authorization": st.secrets["APY_KEY"]}
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        d = get_data_r4(data)
+        d = d[::-1]
+        d['fdv/code_commits'] = d['fdv']/d['code_commits']
+        d = d[f'{start_date}':f'{end_date}']
+        # Resample the data to weekly frequency
+        d_weekly = d.resample('W').last()
 
+        fig, ax = plt.subplots(figsize=(30, 12))
+        ax.plot(d_weekly["fdv/code_commits"], label="fdv/code_commits")
+
+        ax.set_title(f"{project_id} FDV and Code Commits ratio from {start_date} to {end_date}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Ratio', fontsize=18)
+        return fig     
+    except KeyError:
+        try:
+            url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_circulating%2Ccode_commits"
+            headers = {"Authorization": st.secrets["APY_KEY"]}
+            response = requests.get(url, headers=headers)
+            data_shows = json.loads(response.text)
+            data = data_shows['data']
+            d = get_data_r44(data)
+            d = d[::-1]
+            d['fdv/code_commits'] = d['fdv']/d['code_commits']
+            d = d[f'{start_date}':f'{end_date}']
+            # Resample the data to weekly frequency
+            d_weekly = d.resample('W').last()
+
+            fig, ax = plt.subplots(figsize=(30, 12))
+            ax.plot(d_weekly["fdv/code_commits"], label="fdv/code_commits")
+
+            ax.set_title(f"{project_id} FDV and Code Commits ratio from {start_date} to {end_date}", fontsize=28)
+            ax.set_xlabel('Date', fontsize=18)
+            ax.set_ylabel('Ratio', fontsize=18)
+            return fig 
+        except KeyError:
+            fig, ax = plt.subplots(figsize=(24, 4))
+
+            ax.set_title(f"Sorry, there is no available data for {project_id} Code Commits!", fontsize=24)
+
+            return fig
 def portfolio_projects_tokenholders_timeseries(project_id, start_date,end_date):
       
     def get_data_tokenholders(data):
@@ -748,3 +821,7 @@ if submitted:
             st.subheader("FDV/Tokenholders Number Ratio")
             fdvth = portfolio_projects_fdv_tokenholders_ratio(project,start_date,end_date)
             st.pyplot(fdvth)
+        if 'FDV/Code Commits' in chart:
+            st.subheader("FDV/Code Commits Number Ratio")
+            fdvcc = portfolio_projects_fdv_code_commits_ratio(project,start_date,end_date)
+            st.pyplot(fdvcc)
