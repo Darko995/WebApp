@@ -15,8 +15,8 @@ st.set_page_config(page_title="Portfolio Priority projects", page_icon="🧐", l
 st.sidebar.header("Please Filter Timeseries Here:")
 chart = st.sidebar.multiselect(
     "Select the Metric:",
-    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings'],
-    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings']
+    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES'],
+    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings','FDV/FEES']
 )
 # ---- MAINPAGE ----
 st.title(":bar_chart: Portfolio Priority projects")
@@ -660,3 +660,7 @@ if submitted:
             st.subheader("Earnings")
             ear = portfolio_projects_earnings_timeseries(project,start_date,end_date)
             st.pyplot(ear)
+        if 'FDV/FEES' in chart:
+            st.subheader("FDV/FEES Ratio")
+            fdvf = portfolio_projects_fdv_fees_ratio(project,start_date,end_date)
+            st.pyplot(fdvf)
