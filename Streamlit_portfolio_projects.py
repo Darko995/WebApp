@@ -17,8 +17,7 @@ chart = st.sidebar.multiselect(
     "Select the Metric:",
     options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price',
              'Earnings','FDV/FEES','FDV/Tokenholders','FDV/Active Developers','Ann Volatility'],
-    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price',
-             'Earnings','FDV/FEES','FDV/Tokenholders','FDV/Active Developers','Ann Volatility']
+    default=['FDV','TVL', 'FEES','Tokenholders','Active Developers','Trading Volume','Ann Volatility']
 )
 # ---- MAINPAGE ----
 st.title(":bar_chart: Portfolio Priority projects")
