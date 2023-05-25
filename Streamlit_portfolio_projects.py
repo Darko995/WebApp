@@ -261,7 +261,87 @@ def portfolio_projects_fees_tvl_ratio(project_id, start_date,end_date):
         ax.set_title(f"Sorry, there is no available data for {project_id} TVL or FEES!", fontsize=24)
 
         return fig
-      
+def portfolio_projects_fdv_fees_ratio(project_id, start_date,end_date):
+    def get_data_r2(data):
+        date = []
+        fdv = []
+        fees = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fdv.append(data[i]['market_cap_fully_diluted'])
+            fees.append(data[i]['fees'])
+        dataa = [fdv, fees]
+        df = pd.DataFrame(dataa, columns=date, index=['fdv', 'fees'])
+        df = df.T.dropna()
+        return df
+    def get_data_r22(data):
+        date = []
+        fdv = []
+        fees = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fdv.append(data[i]['market_cap_circulating'])
+            fees.append(data[i]['fees'])
+        dataa = [fdv, fees]
+        df = pd.DataFrame(dataa, columns=date, index=['fdv', 'fees'])
+        df = df.T.dropna()
+        return df
+    try:
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_fully_diluted%2Cfees"
+        headers = {"Authorization": st.secrets["APY_KEY"]}
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        d = get_data_r2(data)
+        d = d[::-1]
+        d['fees'] = d['fees'].rolling(30).sum().dropna()
+        d['fees'] = d['fees'] * (365 / 30)
+        d['fdv/fees'] = d['fdv']/d['fees']
+        d = d[f'{start_date}':f'{end_date}']
+        # Resample the data to weekly frequency
+        d_weekly = d.resample('W').last()
+
+        fig, ax = plt.subplots(figsize=(30, 12))
+        ax.plot(d_weekly["fdv/fees"], label="fdv/fees")
+
+        # Get the current value of tvl/ss_fees
+        #current_value = d_weekly["fees/tvl"].iloc[-1]
+
+        # Add current value as text to the plot
+        #ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
+
+        ax.set_title(f"{project_id} FDV and Fees ratio from {start_date} to {end_date}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Ratio', fontsize=18)
+        return fig     
+    except KeyError:
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_circulating%2Cfees"
+        headers = {"Authorization": st.secrets["APY_KEY"]}
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        d = get_data_r22(data)
+        d = d[::-1]
+        d['fees'] = d['fees'].rolling(30).sum().dropna()
+        d['fees'] = d['fees'] * (365 / 30)
+        d['fdv/fees'] = d['fdv']/d['fees']
+        d = d[f'{start_date}':f'{end_date}']
+        # Resample the data to weekly frequency
+        d_weekly = d.resample('W').last()
+
+        fig, ax = plt.subplots(figsize=(30, 12))
+        ax.plot(d_weekly["fdv/fees"], label="fdv/fees")
+
+        # Get the current value of tvl/ss_fees
+        #current_value = d_weekly["fees/tvl"].iloc[-1]
+
+        # Add current value as text to the plot
+        #ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
+
+        ax.set_title(f"{project_id} FDV and Fees ratio from {start_date} to {end_date}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Ratio', fontsize=18)
+        return fig           
 def portfolio_projects_tokenholders_timeseries(project_id, start_date,end_date):
       
     def get_data_tokenholders(data):
