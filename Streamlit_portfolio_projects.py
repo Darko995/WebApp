@@ -459,10 +459,10 @@ def portfolio_projects_fdv_code_commits_ratio(project_id, start_date,end_date):
         d['fdv/code_commits'] = d['fdv']/d['code_commits']
         d = d[f'{start_date}':f'{end_date}']
         # Resample the data to weekly frequency
-        d_weekly = d.resample('W').last()
+        #d_weekly = d.resample('W').last()
 
         fig, ax = plt.subplots(figsize=(30, 12))
-        ax.plot(d_weekly["fdv/code_commits"], label="fdv/code_commits")
+        ax.plot(d["fdv/code_commits"], label="fdv/code_commits")
 
         ax.set_title(f"{project_id} FDV and Code Commits ratio from {start_date} to {end_date}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
@@ -480,10 +480,10 @@ def portfolio_projects_fdv_code_commits_ratio(project_id, start_date,end_date):
             d['fdv/code_commits'] = d['fdv']/d['code_commits']
             d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
-            d_weekly = d.resample('W').last()
+            #d_weekly = d.resample('W').last()
 
             fig, ax = plt.subplots(figsize=(30, 12))
-            ax.plot(d_weekly["fdv/code_commits"], label="fdv/code_commits")
+            ax.plot(d["fdv/code_commits"], label="fdv/code_commits")
 
             ax.set_title(f"{project_id} FDV and Code Commits ratio from {start_date} to {end_date}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
