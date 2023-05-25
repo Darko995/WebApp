@@ -15,8 +15,8 @@ st.set_page_config(page_title="Portfolio Priority projects", page_icon="🧐", l
 st.sidebar.header("Please Filter Timeseries Here:")
 chart = st.sidebar.multiselect(
     "Select the Metric:",
-    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price'],
-    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price']
+    options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings'],
+    default=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price','Earnings']
 )
 # ---- MAINPAGE ----
 st.title(":bar_chart: Portfolio Priority projects")
@@ -455,6 +455,44 @@ def portfolio_projects_price_timeseries(project_id, start_date,end_date):
 
         ax.set_title(f"Sorry, there is no available data for {project_id} Price!", fontsize=24)
 
+        return fig 
+def portfolio_projects_earnings_timeseries(project_id, start_date,end_date):
+      
+    def get_data_earnings(data):
+        date = []
+        earnings = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            earnings.append(data[i]['earnings'])
+        dataa = [earnings]
+        df = pd.DataFrame(dataa, columns=date, index=['earnings'])
+        df = df.T.dropna()
+        return df
+    try:
+        headers = {"Authorization": st.secrets["APY_KEY"]}
+    
+        fig, ax = plt.subplots(figsize=(24, 14))
+    
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=earnings"
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        df = get_data_earnings(data)
+        df = df[f'{start_date}':f'{end_date}']
+      
+        df['earnings'].plot(color='crimson', ax=ax, label=f'{project_id} earnings')
+        ax.set_title(f"Earnings of {project_id}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Earnings', fontsize=18)
+        ax.legend(loc='upper left', fontsize=14)
+        ax.legend(loc='upper right', fontsize=14)
+
+        return fig
+    except KeyError:
+        fig, ax = plt.subplots(figsize=(24, 4))
+
+        ax.set_title(f"Sorry, there is no available data for {project_id} Earnings!", fontsize=24)
+
         return fig       
 columns = 3  # Number of columns
 selected_projects = []
@@ -538,4 +576,7 @@ if submitted:
             st.subheader("Price")
             pr = portfolio_projects_price_timeseries(project,start_date,end_date)
             st.pyplot(pr)
-
+        if 'Earnings' in chart:
+            st.subheader("Earnings")
+            ear = portfolio_projects_earnings_timeseries(project,start_date,end_date)
+            st.pyplot(ear)
