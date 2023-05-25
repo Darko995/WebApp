@@ -1,4 +1,2 @@
-pandas_profiling
-streamlit_pandas_profiling
 yfinance
-streamlit_authenticator=0.2.2
+streamlit-authenticator=0.2.2
