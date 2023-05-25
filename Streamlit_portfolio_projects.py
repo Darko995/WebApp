@@ -493,7 +493,7 @@ def portfolio_projects_earnings_timeseries(project_id, start_date,end_date):
 
         ax.set_title(f"Sorry, there is no available data for {project_id} Earnings!", fontsize=24)
 
-        return fig       
+        return fig
 columns = 3  # Number of columns
 selected_projects = []
 
