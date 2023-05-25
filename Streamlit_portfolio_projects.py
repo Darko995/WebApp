@@ -633,7 +633,7 @@ if submitted:
             fees = portfolio_projects_fees_timeseries(project,start_date,end_date)
             st.pyplot(fees)
         if 'FEES/TVL' in chart:
-            st.subheader("Fees/TVL Ratio")
+            st.subheader("Annualized Fees/TVL Ratio")
             ftvl = portfolio_projects_fees_tvl_ratio(project,start_date,end_date)
             st.pyplot(ftvl)
         if 'Tokenholders' in chart:
@@ -661,6 +661,6 @@ if submitted:
             ear = portfolio_projects_earnings_timeseries(project,start_date,end_date)
             st.pyplot(ear)
         if 'FDV/FEES' in chart:
-            st.subheader("FDV/FEES Ratio")
+            st.subheader("FDV/Annualized FEES Ratio")
             fdvf = portfolio_projects_fdv_fees_ratio(project,start_date,end_date)
             st.pyplot(fdvf)
