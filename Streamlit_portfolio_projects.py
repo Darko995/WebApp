@@ -349,6 +349,79 @@ def portfolio_projects_fdv_fees_ratio(project_id, start_date,end_date):
             ax.set_title(f"Sorry, there is no available data for {project_id} Fees!", fontsize=24)
 
             return fig
+def portfolio_projects_fdv_tokenholders_ratio(project_id, start_date,end_date):
+    def get_data_r3(data):
+        date = []
+        fdv = []
+        tokenholders = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fdv.append(data[i]['market_cap_fully_diluted'])
+            tokenholders.append(data[i]['tokenholders'])
+        dataa = [fdv, tokenholders]
+        df = pd.DataFrame(dataa, columns=date, index=['fdv', 'tokenholders'])
+        df = df.T.dropna()
+        return df
+    def get_data_r33(data):
+        date = []
+        fdv = []
+        tokenholders = []
+        for i in range(len(data)):
+            date.append(pd.to_datetime((data[i]['timestamp'])))
+            fdv.append(data[i]['market_cap_circulating'])
+            tokenholders.append(data[i]['tokenholders'])
+        dataa = [fdv, tokenholders]
+        df = pd.DataFrame(dataa, columns=date, index=['fdv', 'tokenholders'])
+        df = df.T.dropna()
+        return df
+    try:
+        url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_fully_diluted%2Ctokenholders"
+        headers = {"Authorization": st.secrets["APY_KEY"]}
+        response = requests.get(url, headers=headers)
+        data_shows = json.loads(response.text)
+        data = data_shows['data']
+        d = get_data_r3(data)
+        d = d[::-1]
+        d['fdv/tokenholders'] = d['fdv']/d['tokenholders']
+        d = d[f'{start_date}':f'{end_date}']
+        # Resample the data to weekly frequency
+        d_weekly = d.resample('W').last()
+
+        fig, ax = plt.subplots(figsize=(30, 12))
+        ax.plot(d_weekly["fdv/tokenholders"], label="fdv/tokenholders")
+
+        ax.set_title(f"{project_id} FDV and Tokenholders Number ratio from {start_date} to {end_date}", fontsize=28)
+        ax.set_xlabel('Date', fontsize=18)
+        ax.set_ylabel('Ratio', fontsize=18)
+        return fig     
+    except KeyError:
+        try:
+            url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_circulating%2Ctokenholders"
+            headers = {"Authorization": st.secrets["APY_KEY"]}
+            response = requests.get(url, headers=headers)
+            data_shows = json.loads(response.text)
+            data = data_shows['data']
+            d = get_data_r33(data)
+            d = d[::-1]
+            d['fdv/tokenholders'] = d['fdv']/d['tokenholders']
+            d = d[f'{start_date}':f'{end_date}']
+            # Resample the data to weekly frequency
+            d_weekly = d.resample('W').last()
+
+            fig, ax = plt.subplots(figsize=(30, 12))
+            ax.plot(d_weekly["fdv/tokenholders"], label="fdv/tokenholders")
+
+            ax.set_title(f"{project_id} FDV and Tokenholders Number ratio from {start_date} to {end_date}", fontsize=28)
+            ax.set_xlabel('Date', fontsize=18)
+            ax.set_ylabel('Ratio', fontsize=18)
+            return fig 
+        except KeyError:
+            fig, ax = plt.subplots(figsize=(24, 4))
+
+            ax.set_title(f"Sorry, there is no available data for {project_id} Tokenholders number!", fontsize=24)
+
+            return fig
+
 def portfolio_projects_tokenholders_timeseries(project_id, start_date,end_date):
       
     def get_data_tokenholders(data):
@@ -671,3 +744,7 @@ if submitted:
             st.subheader("FDV/Annualized FEES Ratio")
             fdvf = portfolio_projects_fdv_fees_ratio(project,start_date,end_date)
             st.pyplot(fdvf)
+        if 'FDV/Tokenholders' in chart:
+            st.subheader("FDV/Tokenholders Number Ratio")
+            fdvth = portfolio_projects_fdv_tokenholders_ratio(project,start_date,end_date)
+            st.pyplot(fdvth)
