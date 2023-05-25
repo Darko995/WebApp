@@ -768,7 +768,7 @@ if submitted:
     # Display charts for selected projects
     for project in selected_projects:
         
-        st.header(f"Here's some charts for {project.capitalize()}!")
+        st.header(f"Here's charts for {project.capitalize()}!")
         if 'FDV' in chart:
             f = portfolio_projects_fdv_timeseries(project,start_date,end_date)
             st.subheader("Fully diluted valuation")
