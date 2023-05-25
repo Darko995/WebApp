@@ -667,7 +667,7 @@ if submitted:
             st.subheader("Earnings")
             ear = portfolio_projects_earnings_timeseries(project,start_date,end_date)
             st.pyplot(ear)
-        if 'FDV/FEES' in chart:
+        if 'FDV/FEES' in chart and project!='0x':
             st.subheader("FDV/Annualized FEES Ratio")
             fdvf = portfolio_projects_fdv_fees_ratio(project,start_date,end_date)
             st.pyplot(fdvf)
