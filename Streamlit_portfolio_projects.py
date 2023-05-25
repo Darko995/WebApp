@@ -780,7 +780,7 @@ with st.form('checkbox_form'):
         'mina','1inch',
         'makerdao', 'near-protocol', 'synthetix', 'kyberswap',
         'conflux', '0x', 'centrifuge',
-        'uma', 'dhedge', 'cosmos','filecoin', 'polkadot'
+        'uma', 'dhedge', 'cosmos','filecoin', 'polkadot','bitcoin'
     ]
 
     # Calculate the number of rows
