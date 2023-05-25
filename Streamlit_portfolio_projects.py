@@ -286,10 +286,11 @@ def portfolio_projects_volatility_timeseries(project_id, start_date,end_date):
         data = data_shows['data']
         df = get_data_price(data)
         df = df[f'{start_date}':f'{end_date}']
-        df_lr = (np.log(df['price'])-np.log(df['price'].shift(1)))[1:].dropna()
-        ann_vol_df = np.std(df_lr[-365:])*np.sqrt(365)*100
+        df['price lr'] = (np.log(df['price'])-np.log(df['price'].shift(1)))[1:].dropna()
+        #df['vol'] = np.std(df['price lr'][-365:])*np.sqrt(365)*100
+        df['vol'] = (df['price lr'].rolling(window=30).std())*np.sqrt(365)*100
 
-        ann_vol_df.plot(color='crimson', ax=ax, label=f'{project_id} volatility')
+        df['vol'].plot(color='crimson', ax=ax, label=f'{project_id} volatility')
         ax.set_title(f"Annualized volatility of {project_id}", fontsize=28)
         ax.set_xlabel('Date', fontsize=18)
         ax.set_ylabel('Volatility', fontsize=18)
