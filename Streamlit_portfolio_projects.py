@@ -158,7 +158,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_mcap(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
             df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
             ax.set_title(f"MCAP of {project_id} from {start_date} to {end_date}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
@@ -178,7 +180,9 @@ elif authentication_status:
                 data_shows = json.loads(response.text)
                 data = data_shows['data']
                 df = get_data_mcap_c(data)
-                df = df[f'{start_date}':f'{end_date}']
+                start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+                if start_date > df.index[0]:
+                    df = df[f'{start_date}':f'{end_date}']
 
                 df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
                 ax.set_title(f"MCAP of {project_id} from {start_date} to {end_date}", fontsize=28)
@@ -218,7 +222,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_tvl(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
             df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
             ax.set_title(f"TVL of {project_id} from {start_date} to {end_date}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
@@ -231,10 +237,6 @@ elif authentication_status:
             fig, ax = plt.subplots(figsize=(24, 4))
 
             ax.set_title(f"Sorry, there is no available data for {project_id} TVL!", fontsize=24)
-            #ax.set_xlabel('Date', fontsize=18)
-            #ax.set_ylabel('TVL', fontsize=18)
-            #ax.legend(loc='upper left', fontsize=14)
-            #ax.legend(loc='upper right', fontsize=14)
 
             return fig
 
@@ -261,7 +263,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_fees(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
             df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
             ax.set_title(f"FEES of {project_id} from {start_date} to {end_date}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
@@ -300,7 +304,9 @@ elif authentication_status:
             d['fees'] = d['fees'].rolling(30).sum().dropna()
             d['fees'] = d['fees'] * (365 / 30)
             d['fees/tvl'] = d['fees']/d['TVL']
-            d = d[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
             d_weekly = d.resample('W').last()
 
@@ -345,7 +351,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_price(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
             df['price lr'] = (np.log(df['price'])-np.log(df['price'].shift(1)))[1:].dropna()
             #df['vol'] = np.std(df['price lr'][-365:])*np.sqrt(365)*100
             df['vol'] = (df['price lr'].rolling(window=30).std())*np.sqrt(365)*100
@@ -400,7 +408,9 @@ elif authentication_status:
             d['fees'] = d['fees'].rolling(30).sum().dropna()
             d['fees'] = d['fees'] * (365 / 30)
             d['fdv/fees'] = d['fdv']/d['fees']
-            d = d[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
             d_weekly = d.resample('W').last()
 
@@ -429,7 +439,9 @@ elif authentication_status:
                 d['fees'] = d['fees'].rolling(30).sum().dropna()
                 d['fees'] = d['fees'] * (365 / 30)
                 d['fdv/fees'] = d['fdv']/d['fees']
-                d = d[f'{start_date}':f'{end_date}']
+                start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                if start_date > d.index[0]:
+                    d = d[f'{start_date}':f'{end_date}']
                 # Resample the data to weekly frequency
                 d_weekly = d.resample('W').last()
 
@@ -486,7 +498,9 @@ elif authentication_status:
             d = get_data_r3(data)
             d = d[::-1]
             d['fdv/tokenholders'] = d['fdv']/d['tokenholders']
-            d = d[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
             d_weekly = d.resample('W').last()
 
@@ -507,7 +521,9 @@ elif authentication_status:
                 d = get_data_r33(data)
                 d = d[::-1]
                 d['fdv/tokenholders'] = d['fdv']/d['tokenholders']
-                d = d[f'{start_date}':f'{end_date}']
+                start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                if start_date > d.index[0]:
+                    d = d[f'{start_date}':f'{end_date}']
                 # Resample the data to weekly frequency
                 d_weekly = d.resample('W').last()
 
@@ -558,7 +574,9 @@ elif authentication_status:
             d = get_data_r4(data)
             d = d[::-1]
             d['fdv/active_developers'] = d['fdv']/d['active_developers']
-            d = d[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
             #d_weekly = d.resample('W').last()
 
@@ -579,7 +597,9 @@ elif authentication_status:
                 d = get_data_r44(data)
                 d = d[::-1]
                 d['fdv/active_developers'] = d['fdv']/d['active_developers']
-                d = d[f'{start_date}':f'{end_date}']
+                start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                if start_date > d.index[0]:
+                    d = d[f'{start_date}':f'{end_date}']
                 # Resample the data to weekly frequency
                 #d_weekly = d.resample('W').last()
 
@@ -618,7 +638,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_tokenholders(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
 
             df['tokenholders'].plot(color='crimson', ax=ax, label=f'{project_id} tokenholders')
             ax.set_title(f"Tokenholders of {project_id}", fontsize=28)
@@ -658,7 +680,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_active_developers(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
 
             df['active_developers'].plot(color='crimson', ax=ax, label=f'{project_id} active_developers')
             ax.set_title(f"Active developers of {project_id}", fontsize=28)
@@ -696,7 +720,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_code_commits(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
             d_weekly = df.resample('W').sum()
 
             d_weekly['code_commits'].plot(color='crimson', ax=ax, label=f'{project_id} code_commits')
@@ -736,7 +762,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_trading_volume(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
 
             df['token_trading_volume'].plot(color='crimson', ax=ax, label=f'{project_id} token_trading_volume')
             ax.set_title(f"Trading volume of {project_id}", fontsize=28)
@@ -774,7 +802,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_price(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
 
             df['price'].plot(color='crimson', ax=ax, label=f'{project_id} price')
             ax.set_title(f"Price of {project_id}", fontsize=28)
@@ -812,7 +842,9 @@ elif authentication_status:
             data_shows = json.loads(response.text)
             data = data_shows['data']
             df = get_data_earnings(data)
-            df = df[f'{start_date}':f'{end_date}']
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
+            if start_date > df.index[0]:
+                df = df[f'{start_date}':f'{end_date}']
 
             df['earnings'].plot(color='crimson', ax=ax, label=f'{project_id} earnings')
             ax.set_title(f"Earnings of {project_id}", fontsize=28)
