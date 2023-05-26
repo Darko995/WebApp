@@ -90,7 +90,7 @@ elif authentication_status:
             if start_date > df.index[0]:
                 df = df[f'{start_date}':f'{end_date}']
             df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
-            ax.set_title(f"FDV of {project_id} from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"FDV of {project_id}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('FDV', fontsize=18)
             ax.legend(loc='upper left', fontsize=14)
@@ -112,7 +112,7 @@ elif authentication_status:
                 if start_date > df.index[0]:
                     df = df[f'{start_date}':f'{end_date}']
                 df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
-                ax.set_title(f"FDV of {project_id} from {start_date} to {end_date}", fontsize=28)
+                ax.set_title(f"FDV of {project_id}", fontsize=28)
                 ax.set_xlabel('Date', fontsize=18)
                 ax.set_ylabel('FDV', fontsize=18)
                 ax.legend(loc='upper left', fontsize=14)
@@ -162,7 +162,7 @@ elif authentication_status:
             if start_date > df.index[0]:
                 df = df[f'{start_date}':f'{end_date}']
             df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
-            ax.set_title(f"MCAP of {project_id} from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"MCAP of {project_id}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('MCAP', fontsize=18)
             ax.legend(loc='upper left', fontsize=14)
@@ -185,7 +185,7 @@ elif authentication_status:
                     df = df[f'{start_date}':f'{end_date}']
 
                 df['mcap'].plot(color='crimson', ax=ax, label=f'{project_id} mcap')
-                ax.set_title(f"MCAP of {project_id} from {start_date} to {end_date}", fontsize=28)
+                ax.set_title(f"MCAP of {project_id}", fontsize=28)
                 ax.set_xlabel('Date', fontsize=18)
                 ax.set_ylabel('MCAP', fontsize=18)
                 ax.legend(loc='upper left', fontsize=14)
@@ -226,7 +226,7 @@ elif authentication_status:
             if start_date > df.index[0]:
                 df = df[f'{start_date}':f'{end_date}']
             df['tvl'].plot(color='crimson', ax=ax, label=f'{project_id} tvl')
-            ax.set_title(f"TVL of {project_id} from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"TVL of {project_id}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('TVL', fontsize=18)
             ax.legend(loc='upper left', fontsize=14)
@@ -267,7 +267,7 @@ elif authentication_status:
             if start_date > df.index[0]:
                 df = df[f'{start_date}':f'{end_date}']
             df['fees'].plot(color='crimson', ax=ax, label=f'{project_id} fees')
-            ax.set_title(f"FEES of {project_id} from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"FEES of {project_id}", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('FEES', fontsize=18)
             ax.legend(loc='upper left', fontsize=14)
@@ -319,7 +319,7 @@ elif authentication_status:
             # Add current value as text to the plot
             #ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
 
-            ax.set_title(f"{project_id} Fees and TVL ratio from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"{project_id} Fees and TVL ratio", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('Ratio', fontsize=18)
             return fig     
@@ -423,7 +423,7 @@ elif authentication_status:
             # Add current value as text to the plot
             #ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
 
-            ax.set_title(f"{project_id} FDV and Fees ratio from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"{project_id} FDV and Fees ratio", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('Ratio', fontsize=18)
             return fig     
@@ -454,7 +454,7 @@ elif authentication_status:
                 # Add current value as text to the plot
                 #ax.text(d_weekly.index[-1], current_value, f"Current value: {current_value:.2f}", fontsize=16, ha="right", va="top")
 
-                ax.set_title(f"{project_id} FDV and Fees ratio from {start_date} to {end_date}", fontsize=28)
+                ax.set_title(f"{project_id} FDV and Fees ratio", fontsize=28)
                 ax.set_xlabel('Date', fontsize=18)
                 ax.set_ylabel('Ratio', fontsize=18)
                 return fig 
@@ -507,7 +507,7 @@ elif authentication_status:
             fig, ax = plt.subplots(figsize=(30, 12))
             ax.plot(d_weekly["fdv/tokenholders"], label="fdv/tokenholders")
 
-            ax.set_title(f"{project_id} FDV and Tokenholders Number ratio from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"{project_id} FDV and Tokenholders Number ratio", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('Ratio', fontsize=18)
             return fig     
@@ -530,7 +530,7 @@ elif authentication_status:
                 fig, ax = plt.subplots(figsize=(30, 12))
                 ax.plot(d_weekly["fdv/tokenholders"], label="fdv/tokenholders")
 
-                ax.set_title(f"{project_id} FDV and Tokenholders Number ratio from {start_date} to {end_date}", fontsize=28)
+                ax.set_title(f"{project_id} FDV and Tokenholders Number ratio", fontsize=28)
                 ax.set_xlabel('Date', fontsize=18)
                 ax.set_ylabel('Ratio', fontsize=18)
                 return fig 
@@ -583,7 +583,7 @@ elif authentication_status:
             fig, ax = plt.subplots(figsize=(30, 12))
             ax.plot(d["fdv/active_developers"], label="fdv/active_developers")
 
-            ax.set_title(f"{project_id} FDV and Active Developers ratio from {start_date} to {end_date}", fontsize=28)
+            ax.set_title(f"{project_id} FDV and Active Developers ratio", fontsize=28)
             ax.set_xlabel('Date', fontsize=18)
             ax.set_ylabel('Ratio', fontsize=18)
             return fig     
@@ -606,7 +606,7 @@ elif authentication_status:
                 fig, ax = plt.subplots(figsize=(30, 12))
                 ax.plot(d["fdv/active_developers"], label="fdv/active_developers")
 
-                ax.set_title(f"{project_id} FDV and Active Developers ratio from {start_date} to {end_date}", fontsize=28)
+                ax.set_title(f"{project_id} FDV and Active Developers ratio", fontsize=28)
                 ax.set_xlabel('Date', fontsize=18)
                 ax.set_ylabel('Ratio', fontsize=18)
                 return fig 
