@@ -440,9 +440,9 @@ elif authentication_status:
                 d['fees'] = d['fees'].rolling(30).sum().dropna()
                 d['fees'] = d['fees'] * (365 / 30)
                 d['fdv/fees'] = d['fdv']/d['fees']
-                start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
-                if start_date > d.index[0]:
-                    d = d[f'{start_date}':f'{end_date}']
+                #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                #if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
                 # Resample the data to weekly frequency
                 d_weekly = d.resample('W').last()
 
@@ -499,9 +499,9 @@ elif authentication_status:
             d = get_data_r3(data)
             d = d[::-1]
             d['fdv/tokenholders'] = d['fdv']/d['tokenholders']
-            start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
-            if start_date > d.index[0]:
-                d = d[f'{start_date}':f'{end_date}']
+            #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            #if start_date > d.index[0]:
+            d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
             d_weekly = d.resample('W').last()
 
@@ -522,9 +522,9 @@ elif authentication_status:
                 d = get_data_r33(data)
                 d = d[::-1]
                 d['fdv/tokenholders'] = d['fdv']/d['tokenholders']
-                start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
-                if start_date > d.index[0]:
-                    d = d[f'{start_date}':f'{end_date}']
+                #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                #if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
                 # Resample the data to weekly frequency
                 d_weekly = d.resample('W').last()
 
@@ -575,9 +575,9 @@ elif authentication_status:
             d = get_data_r4(data)
             d = d[::-1]
             d['fdv/active_developers'] = d['fdv']/d['active_developers']
-            start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
-            if start_date > d.index[0]:
-                d = d[f'{start_date}':f'{end_date}']
+            #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            #if start_date > d.index[0]:
+            d = d[f'{start_date}':f'{end_date}']
             # Resample the data to weekly frequency
             #d_weekly = d.resample('W').last()
 
@@ -598,9 +598,9 @@ elif authentication_status:
                 d = get_data_r44(data)
                 d = d[::-1]
                 d['fdv/active_developers'] = d['fdv']/d['active_developers']
-                start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
-                if start_date > d.index[0]:
-                    d = d[f'{start_date}':f'{end_date}']
+                #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                #if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
                 # Resample the data to weekly frequency
                 #d_weekly = d.resample('W').last()
 
