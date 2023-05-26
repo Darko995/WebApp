@@ -5,6 +5,8 @@ import streamlit as st
 import requests
 import json
 import matplotlib.pyplot as plt
+# Set the maximum number of open figures to 30
+mpl.rcParams['figure.max_open_warning'] = 30
 import numpy as np
 import pandas as pd
 import yfinance as yf
