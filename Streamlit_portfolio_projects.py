@@ -5,7 +5,7 @@ import streamlit as st
 import requests
 import json
 import matplotlib
-from import pyplot as plt
+from matplotlib import pyplot as plt
 # Set the maximum number of open figures to 30
 matplotlib.rcParams['figure.max_open_warning'] = 30
 import numpy as np
