@@ -107,7 +107,8 @@ elif authentication_status:
                 data_shows = json.loads(response.text)
                 data = data_shows['data']
                 df = get_data_c(data)
-                df = df[f'{start_date}':f'{end_date}']
+                if start_date > df.index[0]:
+                    df = df[f'{start_date}':f'{end_date}']
                 df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
                 ax.set_title(f"FDV of {project_id} from {start_date} to {end_date}", fontsize=28)
                 ax.set_xlabel('Date', fontsize=18)
