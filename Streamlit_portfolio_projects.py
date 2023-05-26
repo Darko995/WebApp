@@ -85,8 +85,8 @@ elif authentication_status:
             response = requests.get(url, headers=headers)
             data_shows = json.loads(response.text)
             data = data_shows['data']
-            df = get_data(data)
-            start_date = pd.Timestamp(start_date) 
+            df = get_data(data) 
+            start_date = pd.Timestamp(start_date).tz_localize(df.index.tz)
             if start_date > df.index[0]:
                 df = df[f'{start_date}':f'{end_date}']
             df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
@@ -108,7 +108,7 @@ elif authentication_status:
                 data_shows = json.loads(response.text)
                 data = data_shows['data']
                 df = get_data_c(data)
-                start_date = pd.Timestamp(start_date) 
+                start_date = pd.Timestamp(start_date).tz_localize(df.index.tz) 
                 if start_date > df.index[0]:
                     df = df[f'{start_date}':f'{end_date}']
                 df['fdv'].plot(color='crimson', ax=ax, label=f'{project_id} fdv')
