@@ -17,7 +17,7 @@ from yaml.loader import SafeLoader
 
 st.set_page_config(page_title="Portfolio Priority projects", page_icon="🧐", layout="wide")
 
-with open('../config.yaml') as file:
+with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(
@@ -28,27 +28,16 @@ authenticator = stauth.Authenticate(
     config['preauthorized']
 )
 # --- USER AUTHENTICATION ---
-names = ["iosg"]
-usernames = ["iosg ventures"]
+name, authentication_status, username = authenticator.login('Login', 'main')
 
-# load hashed passwords
-file_path = Path(__file__).parent / "hashed_pw.pkl"
-with file_path.open("rb") as file:
-    hashed_passwords = pickle.load(file)
-
-authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-    "sales_dashboard", "abcdef", cookie_expiry_days=30)
-
-name, authentication_status, username = authenticator.login("Login", "main")
-
-if authentication_status == False:
-    st.error("Username/password is incorrect")
-
-if authentication_status == None:
-    st.warning("Please enter your username and password")
-
-if authentication_status:
-
+if authentication_status is False:
+    st.error('Username/password is incorrect')
+elif authentication_status is None:
+    st.warning('Please enter your username and password')
+elif authentication_status:
+    authenticator.logout('Logout', 'main', key='unique_key')
+    st.write(f'Welcome *{name}*')
+    st.title('Some content')
 
     # ---- SIDEBAR ----
     authenticator.logout("Logout", "sidebar")
