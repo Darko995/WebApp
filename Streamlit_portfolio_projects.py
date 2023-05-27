@@ -47,7 +47,7 @@ elif authentication_status:
     chart = st.sidebar.multiselect(
         "Select the Metric:",
         options=['FDV', 'MCAP', 'TVL', 'FEES','FEES/TVL','Tokenholders','Active Developers','Code Commits','Trading Volume','Price',
-                 'Earnings','FDV/FEES','FDV/Tokenholders','FDV/Active Developers','Ann Volatility'],
+                 'Earnings','FDV/FEES','FDV/Tokenholders','FDV/Active Developers','Ann Volatility','MCAP/Trading Volume'],
         default=[]
     )
     # ---- MAINPAGE ----
@@ -463,6 +463,86 @@ elif authentication_status:
                 fig, ax = plt.subplots(figsize=(24, 4))
 
                 ax.set_title(f"Sorry, there is no available data for {project_id} Fees!", fontsize=24)
+
+                return fig
+    def portfolio_projects_mcap_trading_volume_ratio(project_id, start_date,end_date):
+        def get_data_r6(data):
+            date = []
+            mcap = []
+            token_trading_volume = []
+            for i in range(len(data)):
+                date.append(pd.to_datetime((data[i]['timestamp'])))
+                mcap.append(data[i]['market_cap_circulating'])
+                token_trading_volume.append(data[i]['token_trading_volume'])
+            dataa = [mcap, token_trading_volume]
+            df = pd.DataFrame(dataa, columns=date, index=['mcap', 'token_trading_volume'])
+            df = df.T.dropna()
+            return df
+        def get_data_r66(data):
+            date = []
+            mcap = []
+            token_trading_volume = []
+            for i in range(len(data)):
+                date.append(pd.to_datetime((data[i]['timestamp'])))
+                mcap.append(data[i]['market_cap_fully_diluted'])
+                token_trading_volume.append(data[i]['token_trading_volume'])
+            dataa = [mcap, token_trading_volume]
+            df = pd.DataFrame(dataa, columns=date, index=['mcap', 'token_trading_volume'])
+            df = df.T.dropna()
+            return df
+        try:
+            url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_circulating%2Ctoken_trading_volume"
+            headers = {"Authorization": st.secrets["APY_KEY"]}
+            response = requests.get(url, headers=headers)
+            data_shows = json.loads(response.text)
+            data = data_shows['data']
+            d = get_data_r6(data)
+            d = d[::-1]
+            #d['fees'] = d['fees'].rolling(30).sum().dropna()
+            #d['fees'] = d['fees'] * (365 / 30)
+            d['mcap/token_trading_volume'] = d['mcap']/d['token_trading_volume']
+            #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+            #if start_date > d.index[0]:
+            d = d[f'{start_date}':f'{end_date}']
+            # Resample the data to weekly frequency
+            #d_weekly = d.resample('W').last()
+
+            fig, ax = plt.subplots(figsize=(30, 12))
+            ax.plot(d["mcap/token_trading_volume"], label="mcap/token_trading_volume")
+
+            ax.set_title(f"{project_id} MCAP and Token Trading Volume ratio", fontsize=28)
+            ax.set_xlabel('Date', fontsize=18)
+            ax.set_ylabel('Ratio', fontsize=18)
+            return fig     
+        except KeyError:
+            try:
+                url = f"https://api.tokenterminal.com/v2/projects/{project_id}/metrics?metric_ids=market_cap_fully_diluted%2Cfees"
+                headers = {"Authorization": st.secrets["APY_KEY"]}
+                response = requests.get(url, headers=headers)
+                data_shows = json.loads(response.text)
+                data = data_shows['data']
+                d = get_data_r66(data)
+                d = d[::-1]
+                #d['fees'] = d['fees'].rolling(30).sum().dropna()
+                #d['fees'] = d['fees'] * (365 / 30)
+                d['mcap/token_trading_volume'] = d['mcap']/d['token_trading_volume']
+                #start_date = pd.Timestamp(start_date).tz_localize(d.index.tz)
+                #if start_date > d.index[0]:
+                d = d[f'{start_date}':f'{end_date}']
+                # Resample the data to weekly frequency
+                #d_weekly = d.resample('W').last()
+
+                fig, ax = plt.subplots(figsize=(30, 12))
+                ax.plot(d["mcap/token_trading_volume"], label="mcap/token_trading_volume")
+
+                ax.set_title(f"{project_id} MCAP and Token Trading Volume ratio", fontsize=28)
+                ax.set_xlabel('Date', fontsize=18)
+                ax.set_ylabel('Ratio', fontsize=18)
+                return fig 
+            except KeyError:
+                fig, ax = plt.subplots(figsize=(24, 4))
+
+                ax.set_title(f"Sorry, there is no available data for {project_id} Token Trading Volume!", fontsize=24)
 
                 return fig
     def portfolio_projects_fdv_tokenholders_ratio(project_id, start_date,end_date):
@@ -963,3 +1043,7 @@ elif authentication_status:
                 st.subheader("Annualized Volatility")
                 vol = portfolio_projects_volatility_timeseries(project,start_date,end_date)
                 st.pyplot(vol)
+            if 'MCAP/Trading Volume' in chart:
+                st.subheader("MCAP and Token Trading Volume Ratio")
+                mcaptv = portfolio_projects_mcap_trading_volume_ratio(project,start_date,end_date)
+                st.pyplot(mcaptv)
