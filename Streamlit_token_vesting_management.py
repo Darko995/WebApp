@@ -1457,7 +1457,7 @@ elif authentication_status:
                         selected_projects.append(checkbox_labels[index])
         submitted = st.form_submit_button('Submit')
 
-    if submitted:
+    #if submitted:
         # Display charts for selected projects
         for project in selected_projects:
 
