@@ -1430,7 +1430,7 @@ elif authentication_status:
         # List of checkbox labels
         checkbox_labels = [
             'Illuvium','Arweave', 'Synthetix','Automata', 'Liquity',
-            'Coin98','Uma', 'Mcdex', 'Izumi', 'Insurace', 'Thales'
+            'Coin98','Uma', 'Mcdex', 'Izumi', 'Insurace', 'Thales',
             'Impossible finance', 'Moonbeam', 'Astar', 'uJenny',
             'Finnexus', 'Stakewise', 'Centrifuge',
             'Galaxy', 'Kyve network', 'Mina','Meta pool', 'Cypher MOD',
