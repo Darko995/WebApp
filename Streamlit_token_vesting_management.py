@@ -1441,7 +1441,7 @@ elif authentication_status:
         num_rows = len(checkbox_labels) // columns + 1
 
         for i in range(num_rows):
-            cols_container = st.beta_columns(columns)
+            cols_container = st.columns(columns)
 
             for j in range(columns):
                 index = i * columns + j
