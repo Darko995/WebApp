@@ -9,6 +9,9 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 import datetime 
+from pycoingecko import CoinGeckoAPI
+cg = CoinGeckoAPI()
+
 
 token_ticker = "ILV"
 coingecko_id = "illuvium"
