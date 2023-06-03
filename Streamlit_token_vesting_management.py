@@ -1418,3 +1418,49 @@ elif authentication_status:
     df_perc.index = df_perc.index.date
     # Change the dates in the next_vesting_date column to only display the date part
     df_perc['next_vesting_date'] = df_perc['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
+    
+    
+    columns = 3  # Number of columns
+    selected_projects = []
+
+    with st.form('checkbox_form'):
+        st.write('Which project would you like to check?')
+
+        # List of checkbox labels
+        checkbox_labels = [
+            'Illuvium','Arweave', 'Synthetix','Automata', 'Liquity',
+            'Coin98','Uma', 'Mcdex', 'Izumi', 'Insurace', 'Thales'
+            'Impossible finance', 'Moonbeam', 'Astar', 'uJenny',
+            'Finnexus', 'Stakewise', 'Centrifuge',
+            'Galaxy', 'Kyve network', 'Mina','Meta pool', 'Cypher MOD',
+            'Starkware', 'Aurora', 'Daosquare', 'Burrow', 'Gitcoin', 'Treasure DAO', 'Alethea', 'Perion'
+        ]
+
+        # Calculate the number of rows
+        num_rows = len(checkbox_labels) // columns + 1
+
+        for i in range(num_rows):
+            cols_container = st.beta_columns(columns)
+
+            for j in range(columns):
+                index = i * columns + j
+
+                if index < len(checkbox_labels):
+                    # Store the checkbox value in a variable
+                    checkbox_value = cols_container[j].checkbox(
+                        label=checkbox_labels[index], key=index
+                    )
+
+                    # Add the selected project to the list
+                    if checkbox_value:
+                        selected_projects.append(checkbox_labels[index])
+        submitted = st.form_submit_button('Submit')
+
+        if submitted:
+            # Display charts for selected projects
+            for project in selected_projects:
+
+                st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
+                if project==Illuvium:
+                    st.subheader("Illuvium token vesting schedule")
+                    st.dataframe(df_ilv)
