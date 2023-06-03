@@ -1462,7 +1462,7 @@ elif authentication_status:
         for project in selected_projects:
 
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
-            if project==Illuvium:
+            if project=='Illuvium':
                 st.subheader("Illuvium token vesting schedule")
                 d = ilv()
                 st.dataframe(d)
