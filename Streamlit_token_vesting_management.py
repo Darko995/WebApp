@@ -4,14 +4,23 @@ import pandas as pd
 import streamlit as st
 import requests
 import json
-import matplotlib.pyplot as plt
+import matplotlib
+from matplotlib import pyplot as plt
+# Set the maximum number of open figures to 30
+matplotlib.rcParams['figure.max_open_warning'] = 30
 import numpy as np
 import pandas as pd
 import yfinance as yf
 import datetime 
+import pickle
+from pathlib import Path
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 
+st.set_page_config(page_title="Token Vesting Management", page_icon="🧐", layout="wide")
 
 token_ticker = "ILV"
 coingecko_id = "illuvium"
