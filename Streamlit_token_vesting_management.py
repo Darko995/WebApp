@@ -48,7 +48,7 @@ elif authentication_status:
     
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: Portfolio Priority projects")
+    st.title(":bar_chart: Token Vesting Management")
     st.markdown("##")
     
     
