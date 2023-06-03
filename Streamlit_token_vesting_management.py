@@ -174,8 +174,8 @@ elif authentication_status:
 
 
 
-    token_ticker = "ATA"
-    coingecko_id = "automata"
+    token_ticker1 = "ATA"
+    coingecko_id1 = "automata"
     entry_price = 0.02
     vesting_schedule = {pd.Timestamp('2021-06-07'):12.5,pd.Timestamp('2021-12-07'):12.5,pd.Timestamp('2022-03-07'):12.5,pd.Timestamp('2022-06-07'):12.5,
                         pd.Timestamp('2022-09-07'):12.5,pd.Timestamp('2022-12-07'):12.5,pd.Timestamp('2023-03-07'):12.5,pd.Timestamp('2023-06-07'):12.5}
@@ -183,9 +183,9 @@ elif authentication_status:
     total_tokens_number = 4800000
 
     # call coingecko api to get real-time price
-    url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+    url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id1}&vs_currencies=usd"
     response = requests.get(url)
-    price = response.json()[coingecko_id]["usd"]
+    price = response.json()[coingecko_id1]["usd"]
 
     # calculate current ROI
     current_price = price
@@ -215,8 +215,8 @@ elif authentication_status:
 
 
 
-    token_ticker = "ATA"
-    coingecko_id = "automata"
+    token_ticker2 = "ATA"
+    coingecko_id2 = "automata"
     entry_price = 0.04
     vesting_schedule = {pd.Timestamp('2021-06-07'):12.5,pd.Timestamp('2021-12-07'):12.5,pd.Timestamp('2022-03-07'):12.5,pd.Timestamp('2022-06-07'):12.5,pd.Timestamp('2022-09-07'):12.5,
                         pd.Timestamp('2022-12-07'):12.5,pd.Timestamp('2023-03-07'):12.5,pd.Timestamp('2023-06-07'):12.5}
@@ -224,9 +224,9 @@ elif authentication_status:
     total_tokens_number = 3750000
 
     # call coingecko api to get real-time price
-    url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id}&vs_currencies=usd"
+    url = f"https://api.coingecko.com/api/v3/simple/price?ids={coingecko_id2}&vs_currencies=usd"
     response = requests.get(url)
-    price = response.json()[coingecko_id]["usd"]
+    price = response.json()[coingecko_id2]["usd"]
 
     # calculate current ROI
     current_price = price
