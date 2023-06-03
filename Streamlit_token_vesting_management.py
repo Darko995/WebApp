@@ -1466,3 +1466,121 @@ elif authentication_status:
                 st.subheader("Illuvium token vesting schedule")
                 d = ilv()
                 st.dataframe(d)
+            if project=='Arweave':
+                st.subheader("Arweave token vesting schedule")
+                d = ar()
+                st.dataframe(d)
+            if project=='Synthetix':
+                st.subheader("Synthetix token vesting schedule")
+                d = snx()
+                st.dataframe(d)
+            if project=='Automata':
+                st.subheader("Automata token vesting schedule")
+                d = ata1()
+                d1 = ata2()
+                st.dataframe(d)
+                st.dataframe(d1)
+            if project=='Liquity':
+                st.subheader("Liquity token vesting schedule")
+                d = lqty()
+                st.dataframe(d)
+            if project=='Coin98':
+                st.subheader("Coin98 token vesting schedule")
+                d = c98()
+                st.dataframe(d)
+            if project=='Uma':
+                st.subheader("Uma token vesting schedule")
+                d = uma()
+                st.dataframe(d)
+            if project=='Mcdex':
+                st.subheader("Mcdex token vesting schedule")
+                d = mux()
+                st.dataframe(d)
+            if project=='Izumi':
+                st.subheader("Izumi token vesting schedule")
+                d = izi()
+                st.dataframe(d)
+            if project=='Thales':
+                st.subheader("Thales token vesting schedule")
+                d = thales()
+                st.dataframe(d)
+            if project=='Impossible finance':
+                st.subheader("Impossible finance token vesting schedule")
+                d = imf()
+                st.dataframe(d)
+            if project=='Moonbeam':
+                st.subheader("Moonbeam token vesting schedule")
+                d = glmr()
+                st.dataframe(d)
+            if project=='Astar':
+                st.subheader("Astar token vesting schedule")
+                d = astr()
+                st.dataframe(d)
+            if project=='uJenny':
+                st.subheader("uJenny token vesting schedule")
+                d = ujenny()
+                st.dataframe(d)
+            if project=='Finnexus':
+                st.subheader("Finnexus token vesting schedule")
+                d = fnx()
+                st.dataframe(d)
+            if project=='Stakewise':
+                st.subheader("Stakewise token vesting schedule")
+                d = swise()
+                st.dataframe(d)
+            if project=='Centrifuge':
+                st.subheader("Centrifuge token vesting schedule")
+                d = cfg()
+                st.dataframe(d)
+            if project=='Galaxy':
+                st.subheader("Galaxy token vesting schedule")
+                d = gxy()
+                st.dataframe(d)
+            if project=='Kyve network':
+                st.subheader("Kyve network token vesting schedule")
+                d = kyve()
+                st.dataframe(d)
+            if project=='Mina':
+                st.subheader("Mina token vesting schedule")
+                d = mina()
+                st.dataframe(d)
+            if project=='Meta pool':
+                st.subheader("Meta pool token vesting schedule")
+                d = meta()
+                st.dataframe(d)
+            if project=='Cypher MOD':
+                st.subheader("Cypher MOD token vesting schedule")
+                d = cpr()
+                st.dataframe(d)
+            if project=='Starkware':
+                st.subheader("Starkware token vesting schedule")
+                d = stark()
+                st.dataframe(d)
+            if project=='Aurora':
+                st.subheader("Aurora token vesting schedule")
+                d = aurora()
+                st.dataframe(d)
+            if project=='Daosquare':
+                st.subheader("Daosquare token vesting schedule")
+                d = rice()
+                st.dataframe(d)
+            if project=='Burrow':
+                st.subheader("Burrow token vesting schedule")
+                d = brrr()
+                st.dataframe(d)
+            if project=='Gitcoin':
+                st.subheader("Gitcoin token vesting schedule")
+                d = gtc()
+                st.dataframe(d)
+            if project=='Treasure DAO':
+                st.subheader("Treasure DAO token vesting schedule")
+                d = magic()
+                st.dataframe(d)
+            if project=='Alethea':
+                st.subheader("Alethea MOD token vesting schedule")
+                d = ali()
+                st.dataframe(d)
+            if project=='Perion':
+                st.subheader("Perion MOD token vesting schedule")
+                d = perc()
+                st.dataframe(d)
