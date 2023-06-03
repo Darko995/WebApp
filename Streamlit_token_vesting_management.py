@@ -174,7 +174,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "ATA"
+    token_ticker = "ATA"
     coingecko_id = "automata"
     entry_price = 0.02
     vesting_schedule = {pd.Timestamp('2021-06-07'):12.5,pd.Timestamp('2021-12-07'):12.5,pd.Timestamp('2022-03-07'):12.5,pd.Timestamp('2022-06-07'):12.5,
@@ -215,7 +215,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "ATA"
+    token_ticker = "ATA"
     coingecko_id = "automata"
     entry_price = 0.04
     vesting_schedule = {pd.Timestamp('2021-06-07'):12.5,pd.Timestamp('2021-12-07'):12.5,pd.Timestamp('2022-03-07'):12.5,pd.Timestamp('2022-06-07'):12.5,pd.Timestamp('2022-09-07'):12.5,
@@ -256,7 +256,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "LQTY"
+    token_ticker = "LQTY"
     coingecko_id = "liquity"
     entry_price = 0.699
     vesting_schedule = {pd.Timestamp('2022-04-05'):25,pd.Timestamp('2022-05-05'):2.77,pd.Timestamp('2022-06-05'):2.77,pd.Timestamp('2022-07-05'):2.77,pd.Timestamp('2022-08-05'):2.77,
@@ -302,7 +302,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "C98"
+    token_ticker = "C98"
     coingecko_id = "coin98"
     entry_price = 0.075
     vesting_schedule = {pd.Timestamp('2022-07-23'):1.92,pd.Timestamp('2022-05-05'):2.77,pd.Timestamp('2022-06-05'):2.77,pd.Timestamp('2022-07-05'):2.77,pd.Timestamp('2022-08-05'):2.77,
@@ -349,7 +349,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "UMA"
+    token_ticker = "UMA"
     coingecko_id = "uma"
     entry_price = 0.963
     vesting_schedule = {pd.Timestamp('2021-08-31'):100}
@@ -389,7 +389,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "MUX"
+    token_ticker = "MUX"
     coingecko_id = "mcdex"
     entry_price = 10
     vesting_schedule = {pd.Timestamp('2021-08-31'):100}
@@ -429,7 +429,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "IZI"
+    token_ticker = "IZI"
     coingecko_id = "izumi-finance"
     entry_price = 0.02
     vesting_schedule = {pd.Timestamp('2022-12-21'):100}
@@ -469,7 +469,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "INSUR"
+    token_ticker = "INSUR"
     coingecko_id = "insurace"
     entry_price = 0.35
     vesting_schedule = {pd.Timestamp('2023-05-15'):100}
@@ -509,7 +509,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "THALES"
+    token_ticker = "THALES"
     coingecko_id = "thales"
     entry_price = 0.33
     vesting_schedule = {pd.Timestamp('2022-09-16'):50,pd.Timestamp('2022-10-16'):4.17,pd.Timestamp('2022-11-16'):4.17,pd.Timestamp('2022-12-16'):4.17,pd.Timestamp('2023-01-16'):4.17,
@@ -551,7 +551,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "IF"
+    token_ticker = "IF"
     coingecko_id = "impossible-finance"
     entry_price = 0.06
     vesting_schedule = {pd.Timestamp('2021-06-18'):25,pd.Timestamp('2022-07-18'):6.25,pd.Timestamp('2022-08-18'):6.25,pd.Timestamp('2022-09-18'):6.25,pd.Timestamp('2022-10-18'):6.25,
@@ -593,7 +593,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "GLMR"
+    token_ticker = "GLMR"
     coingecko_id = "moonbeam"
     entry_price = 0.05
     vesting_schedule = {pd.Timestamp('2023-01-11'):100}
@@ -633,7 +633,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "ASTR"
+    token_ticker = "ASTR"
     coingecko_id = "astar"
     entry_price =   19366666/83000
     vesting_schedule = {pd.Timestamp('2022-07-17'):100}
@@ -673,7 +673,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "UJENNY"
+    token_ticker = "UJENNY"
     coingecko_id = "jenny-metaverse-dao-token"
     entry_price = 1.345 
     vesting_schedule = {pd.Timestamp('2021-05-16'):100}
@@ -713,7 +713,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "FNX"
+    token_ticker = "FNX"
     coingecko_id = "FinNexus"
     entry_price = 0.12
     vesting_schedule = {pd.Timestamp('2022-07-03'):100}
@@ -753,7 +753,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "SWISE"
+    token_ticker = "SWISE"
     coingecko_id = "stakewise"
     entry_price = 0.12
     vesting_schedule = {pd.Timestamp('2022-06-20'):5.65,pd.Timestamp('2022-07-20'):5.55,pd.Timestamp('2022-08-20'):5.55,pd.Timestamp('2022-09-20'):5.55,
@@ -797,7 +797,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "CFG"
+    token_ticker = "CFG"
     coingecko_id = "centrifuge"
     entry_price = 0.12
     vesting_schedule = {pd.Timestamp('2021-12-16'):50,pd.Timestamp('2022-01-16'):2.9,pd.Timestamp('2022-01-16'):2.083,pd.Timestamp('2022-02-16'):2.083,
@@ -843,7 +843,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "GXY"
+    token_ticker = "GXY"
     coingecko_id = "galaxy"
     entry_price = 0.075
     vesting_schedule = {pd.Timestamp('2022-02-17'):12,pd.Timestamp('2022-05-17'):11,pd.Timestamp('2022-08-17'):11,pd.Timestamp('2022-11-17'):11,
@@ -885,7 +885,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "KYVE"
+    token_ticker = "KYVE"
     coingecko_id = "Kyve network"
     entry_price = 0.1
     vesting_schedule = {pd.Timestamp('2022-12-31'):10,pd.Timestamp('2023-01-31'):5,pd.Timestamp('2023-02-28'):5,pd.Timestamp('2023-03-31'):5,pd.Timestamp('2023-04-30'):5
@@ -928,7 +928,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "MINA"
+    token_ticker = "MINA"
     coingecko_id = "mina-protocol"
     entry_price = 1.86
     vesting_schedule = {pd.Timestamp('2023-02-27'):50,pd.Timestamp('2024-02-27'):2.9}
@@ -968,7 +968,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "META"
+    token_ticker = "META"
     coingecko_id = "meta-pool"
     entry_price = 0.0006
     vesting_schedule = {}
@@ -1013,7 +1013,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "CPR"
+    token_ticker = "CPR"
     coingecko_id = "cipher-2"
     entry_price = 0.000926
     vesting_schedule = {pd.Timestamp('2022-09-01'):20,pd.Timestamp('2022-12-01'):10,pd.Timestamp('2023-03-01'):10,
@@ -1107,7 +1107,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "AURORA"
+    token_ticker = "AURORA"
     coingecko_id = "aurora-near"
     entry_price = 0.15
     vesting_schedule = {pd.Timestamp('2022-05-18'):3.25,pd.Timestamp('2022-08-18'):3.25,pd.Timestamp('2022-11-18'):3.5,
@@ -1150,7 +1150,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "RICE"
+    token_ticker = "RICE"
     coingecko_id = "daosquare"
     entry_price = 0.135
     vesting_schedule = {pd.Timestamp('2022-07-16'):10,pd.Timestamp('2022-10-16'):10,
@@ -1193,7 +1193,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "BRRR"
+    token_ticker = "BRRR"
     coingecko_id = "burrow"
     entry_price = 0.05
     vesting_schedule = {pd.Timestamp('2022-12-15'):50,pd.Timestamp('2023-01-15'):50/12,
@@ -1237,7 +1237,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "GTC"
+    token_ticker = "GTC"
     coingecko_id = "gitcoin"
     entry_price = 1.6
     vesting_schedule = {pd.Timestamp('2023-11-01'):100/12,pd.Timestamp('2023-12-01'):100/12,pd.Timestamp('2024-01-01'):100/12,
@@ -1280,7 +1280,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "MAGIC"
+    token_ticker = "MAGIC"
     coingecko_id = "magic"
     entry_price = 0.230072024
     vesting_schedule = {pd.Timestamp('2023-11-18'):100/24,pd.Timestamp('2023-12-18'):100/24,pd.Timestamp('2024-01-18'):100/24,
@@ -1328,7 +1328,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "ALI"
+    token_ticker = "ALI"
     coingecko_id = "alethea-artificial-liquid-intelligence-token"
     entry_price = 0.01
     vesting_schedule = {pd.Timestamp('2023-11-18'):100/24,pd.Timestamp('2023-12-18'):100/24,pd.Timestamp('2024-01-18'):100/24,
@@ -1376,7 +1376,7 @@ elif authentication_status:
 
 
 
-    vtoken_ticker = "PERC"
+    token_ticker = "PERC"
     coingecko_id = "perion"
     entry_price = 0.6
     vesting_schedule = {pd.Timestamp('2022-02-06'):10,pd.Timestamp('2023-02-03'):90/12,pd.Timestamp('2023-03-03'):90/12,
