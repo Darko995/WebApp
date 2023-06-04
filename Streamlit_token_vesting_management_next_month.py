@@ -43,7 +43,7 @@ elif authentication_status:
     
     
     # ---- MAINPAGE ----
-    st.title(":bar_chart: Token Vesting Management for next month")
+    st.title(":bar_chart: Token Vesting for next month")
     st.markdown("##")
     vesting_schedule_illuvium = {pd.Timestamp('2022-07-30'):8.33, pd.Timestamp('2022-08-30'):8.33, pd.Timestamp('2022-09-30'):8.33, pd.Timestamp('2022-10-30'):8.33,
                         pd.Timestamp('2022-11-30'):8.33, pd.Timestamp('2022-12-30'):8.33,pd.Timestamp('2023-01-30'):8.33,
