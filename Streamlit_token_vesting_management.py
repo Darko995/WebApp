@@ -1393,7 +1393,7 @@ elif authentication_status:
         current_roi = (current_price - entry_price) / entry_price * 100
 
         # Create a list of dates from the first date in the vesting schedule until today
-        dates = pd.date_range(start=min(vesting_schedule.keys()), end=pd.Timestamp.today(), freq='D')
+        dates = pd.date_range(start=pd.Timestamp('2023-01-01'), end=pd.Timestamp.today(), freq='D')
 
         # Create an empty dataframe
         df_magic = pd.DataFrame(index=dates, columns=['current_token_amount', 'current_roi', 'current_usd_amount', 'next_vesting_date'])
@@ -1444,7 +1444,7 @@ elif authentication_status:
         current_roi = (current_price - entry_price) / entry_price * 100
 
         # Create a list of dates from the first date in the vesting schedule until today
-        dates = pd.date_range(start=min(vesting_schedule.keys()), end=pd.Timestamp.today(), freq='D')
+        dates = pd.date_range(start=pd.Timestamp('2023-01-01'), end=pd.Timestamp.today(), freq='D')
 
         # Create an empty dataframe
         df_ali = pd.DataFrame(index=dates, columns=['current_token_amount', 'current_roi', 'current_usd_amount', 'next_vesting_date'])
