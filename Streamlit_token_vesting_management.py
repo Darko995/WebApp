@@ -1694,7 +1694,7 @@ elif authentication_status:
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Insurace':
                 st.subheader("Izumi token vesting schedule")
-                d = insu()
+                d = insur()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
