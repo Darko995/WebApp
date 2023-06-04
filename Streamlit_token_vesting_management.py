@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 import datetime 
+import matplotlib.dates as mdates
 import pickle
 from pathlib import Path
 import streamlit_authenticator as stauth
