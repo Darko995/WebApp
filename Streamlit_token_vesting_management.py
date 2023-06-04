@@ -152,7 +152,20 @@ elif authentication_status:
         df_ar.index = df_ar.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ar['next_vesting_date'] = df_ar['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_ar
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_ar.index, df_ar['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        return df_ar,fig
 
     def snx():
         token_ticker = "SNX"
@@ -195,7 +208,21 @@ elif authentication_status:
         df_snx.index = df_snx.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_snx['next_vesting_date'] = df_snx['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_snx
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_snx.index, df_snx['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_snx,fig
 
     
     def ata1():
@@ -240,7 +267,21 @@ elif authentication_status:
         df_ata1.index = df_ata1.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ata1['next_vesting_date'] = df_ata1['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_ata1
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_ata1.index, df_ata1['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_ata1,fig
 
     def ata2():
         token_ticker2 = "ATA"
@@ -284,7 +325,21 @@ elif authentication_status:
         df_ata2.index = df_ata2.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ata2['next_vesting_date'] = df_ata2['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_ata2
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_ata2.index, df_ata2['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_ata2,fig
 
     def lqty():
         token_ticker = "LQTY"
@@ -333,7 +388,21 @@ elif authentication_status:
         df_lqty.index = df_lqty.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_lqty['next_vesting_date'] = df_lqty['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_lqty
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_lqty.index, df_lqty['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_lqty,fig
 
     def c98():
         token_ticker = "C98"
@@ -383,7 +452,19 @@ elif authentication_status:
         df_c98.index = df_c98.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_c98['next_vesting_date'] = df_c98['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_c98
+        fig, ax = plt.subplots()
+        ax.plot(df_c98.index, df_c98['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        return df_c98,fig
 
     def uma():
         token_ticker = "UMA"
@@ -426,7 +507,21 @@ elif authentication_status:
         df_uma.index = df_uma.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_uma['next_vesting_date'] = df_uma['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_uma
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_uma.index, df_uma['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_uma,fig
 
     def mux():
         token_ticker = "MUX"
@@ -469,7 +564,21 @@ elif authentication_status:
         df_mcdex.index = df_mcdex.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_mcdex['next_vesting_date'] = df_mcdex['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_mcdex
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_mcdex.index, df_mcdex['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_mcdex, fig
 
     def izi():
         token_ticker = "IZI"
@@ -512,7 +621,21 @@ elif authentication_status:
         df_izumi.index = df_izumi.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_izumi['next_vesting_date'] = df_izumi['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_izumi
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_izumi.index, df_izumi['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_izumi, fig
 
     def insur():
         token_ticker = "INSUR"
@@ -555,7 +678,21 @@ elif authentication_status:
         df_insur.index = df_insur.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_insur['next_vesting_date'] = df_insur['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_insur
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_insur.index, df_insur['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_insur, fig
 
     def thales():
         token_ticker = "THALES"
@@ -600,7 +737,21 @@ elif authentication_status:
         df_thales.index = df_thales.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_thales['next_vesting_date'] = df_thales['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_thales
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_thales.index, df_thales['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_thales, fig
 
     def imf():
         token_ticker = "IF"
@@ -645,7 +796,21 @@ elif authentication_status:
         df_if.index = df_if.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_if['next_vesting_date'] = df_if['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_if
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_if.index, df_if['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_if, fig
 
     def glmr():
         token_ticker = "GLMR"
@@ -688,7 +853,21 @@ elif authentication_status:
         df_glmr.index = df_glmr.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_glmr['next_vesting_date'] = df_glmr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_glmr
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_glmr.index, df_glmr['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_glmr, fig
 
     def astr():
         token_ticker = "ASTR"
@@ -731,7 +910,21 @@ elif authentication_status:
         df_astr.index = df_astr.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_astr['next_vesting_date'] = df_astr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_astr
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_astr.index, df_astr['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_astr, fig
 
     def ujenny():
         token_ticker = "UJENNY"
@@ -774,7 +967,21 @@ elif authentication_status:
         df_ujenny.index = df_ujenny.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ujenny['next_vesting_date'] = df_ujenny['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_ujenny
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_ujenny.index, df_ujenny['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_ujenny, fig
 
     def fnx():
         token_ticker = "FNX"
@@ -817,7 +1024,21 @@ elif authentication_status:
         df_fnx.index = df_fnx.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_fnx['next_vesting_date'] = df_fnx['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_fnx
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_fnx.index, df_fnx['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_fnx, fig
 
     def swise():
         token_ticker = "SWISE"
@@ -864,7 +1085,21 @@ elif authentication_status:
         df_swise.index = df_swise.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_swise['next_vesting_date'] = df_swise['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_swise
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_swise.index, df_swise['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_swise, fig
 
     def cfg():
         token_ticker = "CFG"
@@ -913,7 +1148,21 @@ elif authentication_status:
         df_cfg.index = df_cfg.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_cfg['next_vesting_date'] = df_cfg['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_cfg
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_cfg.index, df_cfg['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_cfg, fig
 
     def gxy():
         token_ticker = "GXY"
@@ -958,7 +1207,21 @@ elif authentication_status:
         df_gxy.index = df_gxy.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_gxy['next_vesting_date'] = df_gxy['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_gxy
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_gxy.index, df_gxy['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_gxy, fig
 
     def kyve():
         token_ticker = "KYVE"
@@ -1004,7 +1267,21 @@ elif authentication_status:
         df_kyve.index = df_kyve.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_kyve['next_vesting_date'] = df_kyve['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_kyve
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_kyve.index, df_kyve['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_kyve, fig
 
     def mina():
         token_ticker = "MINA"
@@ -1047,7 +1324,21 @@ elif authentication_status:
         df_mina.index = df_mina.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_mina['next_vesting_date'] = df_mina['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_mina
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_mina.index, df_mina['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_mina, fig
 
     def meta():
         token_ticker = "META"
@@ -1095,7 +1386,21 @@ elif authentication_status:
         df_meta.index = df_meta.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_meta['next_vesting_date'] = df_meta['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_meta
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_meta.index, df_meta['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_meta, fig
 
     def cpr():
         token_ticker = "CPR"
@@ -1140,7 +1445,21 @@ elif authentication_status:
         df_cpr.index = df_cpr.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_cpr['next_vesting_date'] = df_cpr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_cpr
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_cpr.index, df_cpr['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_cpr, fig
 
     def stark():
         #vtoken_ticker = "CPR"
@@ -1195,7 +1514,21 @@ elif authentication_status:
         df_stark.index = df_stark.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_stark['next_vesting_date'] = df_stark['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_stark
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_stark.index, df_stark['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_stark, fig
 
     def aurora():
         token_ticker = "AURORA"
@@ -1241,7 +1574,21 @@ elif authentication_status:
         df_aurora.index = df_aurora.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_aurora['next_vesting_date'] = df_aurora['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_aurora
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_aurora.index, df_aurora['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_aurora, fig
 
     def rice():
         token_ticker = "RICE"
@@ -1287,7 +1634,21 @@ elif authentication_status:
         df_rice.index = df_rice.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_rice['next_vesting_date'] = df_rice['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_rice
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_rice.index, df_rice['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_rice, fig
 
     def brrr():
         token_ticker = "BRRR"
@@ -1334,7 +1695,21 @@ elif authentication_status:
         df_brrr.index = df_brrr.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_brrr['next_vesting_date'] = df_brrr['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_brrr
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_brrr.index, df_brrr['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_brrr, fig
 
     def gtc():
         token_ticker = "GTC"
@@ -1380,7 +1755,21 @@ elif authentication_status:
         df_gtc.index = df_gtc.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_gtc['next_vesting_date'] = df_gtc['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_gtc
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_gtc.index, df_gtc['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_gtc, fig
 
     def magic():
         token_ticker = "MAGIC"
@@ -1431,7 +1820,21 @@ elif authentication_status:
         df_magic.index = df_magic.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_magic['next_vesting_date'] = df_magic['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_magic
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_magic.index, df_magic['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_magic, fig
 
     def ali():
         token_ticker = "ALI"
@@ -1482,7 +1885,21 @@ elif authentication_status:
         df_ali.index = df_ali.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ali['next_vesting_date'] = df_ali['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_ali
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_ali.index, df_ali['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_ali, fig
 
     def perc():
         token_ticker = "PERC"
@@ -1530,7 +1947,21 @@ elif authentication_status:
         df_perc.index = df_perc.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_perc['next_vesting_date'] = df_perc['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_perc
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_perc.index, df_perc['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
+
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+        
+        return df_perc, fig
     
     columns = 3  # Number of columns
     selected_projects = []
@@ -1591,7 +2022,7 @@ elif authentication_status:
                 st.pyplot(f)
             if project=='Arweave':
                 st.subheader("Arweave token vesting schedule")
-                df_ar = ar()
+                df_ar,f = ar()
                 current_token_amount = df_ar['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ar['current_roi'].iloc[-1]
@@ -1604,9 +2035,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = df_ar['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Synthetix':
                 st.subheader("Synthetix token vesting schedule")
-                d = snx()
+                d,f = snx()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1619,10 +2051,11 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Automata':
                 st.subheader("Automata token vesting schedule")
-                d1 = ata1()
-                d2 = ata2()
+                d1,f1 = ata1()
+                d2,f2 = ata2()
                 current_token_amount = d1['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount of Automata 1:** {current_token_amount}")
                 current_roi = d1['current_roi'].iloc[-1]
@@ -1635,7 +2068,8 @@ elif authentication_status:
                 st.markdown(f"**End of vesting for Automata 1:** {end_of_vesting}")
                 unlocked_pct_tokens = d1['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens of Automata 1:** {unlocked_pct_tokens}")
-               
+                st.pyplot(f1)
+                
                 current_token_amount = d2['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount of Automata 2:** {current_token_amount}")
                 current_roi = d2['current_roi'].iloc[-1]
@@ -1648,9 +2082,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting for Automata 2:** {end_of_vesting}")
                 unlocked_pct_tokens = d2['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens of Automata 2:** {unlocked_pct_tokens}")
+                st.pyplot(f2)
             if project=='Liquity':
                 st.subheader("Liquity token vesting schedule")
-                d = lqty()
+                d,f = lqty()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1663,9 +2098,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Coin98':
                 st.subheader("Coin98 token vesting schedule")
-                d = c98()
+                d,f = c98()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1678,9 +2114,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Uma':
                 st.subheader("Uma token vesting schedule")
-                d = uma()
+                d,f = uma()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1693,9 +2130,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Mcdex':
                 st.subheader("Mcdex token vesting schedule")
-                d = mux()
+                d,f = mux()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1708,9 +2146,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Insurace':
                 st.subheader("Izumi token vesting schedule")
-                d = insur()
+                d,f = insur()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1723,9 +2162,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Izumi':
                 st.subheader("Izumi token vesting schedule")
-                d = izi()
+                d,f = izi()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1738,9 +2178,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Thales':
                 st.subheader("Thales token vesting schedule")
-                d = thales()
+                d,f = thales()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1753,9 +2194,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Impossible finance':
                 st.subheader("Impossible finance token vesting schedule")
-                d = imf()
+                d,f = imf()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1768,9 +2210,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Moonbeam':
                 st.subheader("Moonbeam token vesting schedule")
-                d = glmr()
+                d,f = glmr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1783,9 +2226,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Astar':
                 st.subheader("Astar token vesting schedule")
-                d = astr()
+                d,f = astr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1798,9 +2242,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='uJenny':
                 st.subheader("uJenny token vesting schedule")
-                d = ujenny()
+                d,f = ujenny()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1813,9 +2258,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Finnexus':
                 st.subheader("Finnexus token vesting schedule")
-                d = fnx()
+                d,f = fnx()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1828,9 +2274,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Stakewise':
                 st.subheader("Stakewise token vesting schedule")
-                d = swise()
+                d,f = swise()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1843,9 +2290,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Centrifuge':
                 st.subheader("Centrifuge token vesting schedule")
-                d = cfg()
+                d,f = cfg()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1858,9 +2306,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Galaxy':
                 st.subheader("Galaxy token vesting schedule")
-                d = gxy()
+                d,f = gxy()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1873,9 +2322,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Kyve network':
                 st.subheader("Kyve network token vesting schedule")
-                d = kyve()
+                d,f = kyve()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1888,9 +2338,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Mina':
                 st.subheader("Mina token vesting schedule")
-                d = mina()
+                d,f = mina()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1903,9 +2354,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Meta pool':
                 st.subheader("Meta pool token vesting schedule")
-                d = meta()
+                d,f = meta()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1918,9 +2370,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Cypher MOD':
                 st.subheader("Cypher MOD token vesting schedule")
-                d = cpr()
+                d,f = cpr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1933,9 +2386,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Starkware':
                 st.subheader("Starkware token vesting schedule")
-                d = stark()
+                d,f = stark()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1948,9 +2402,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Aurora':
                 st.subheader("Aurora token vesting schedule")
-                d = aurora()
+                d,f = aurora()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1963,9 +2418,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Daosquare':
                 st.subheader("Daosquare token vesting schedule")
-                d = rice()
+                d,f = rice()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1978,9 +2434,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Burrow':
                 st.subheader("Burrow token vesting schedule")
-                d = brrr()
+                d,f = brrr()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -1993,9 +2450,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Gitcoin':
                 st.subheader("Gitcoin token vesting schedule")
-                d = gtc()
+                d,f = gtc()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2008,9 +2466,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Treasure DAO':
                 st.subheader("Treasure DAO token vesting schedule")
-                d = magic()
+                d,f = magic()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2023,9 +2482,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Alethea':
                 st.subheader("Alethea MOD token vesting schedule")
-                d = ali()
+                d,f = ali()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2038,9 +2498,10 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Perion':
                 st.subheader("Perion MOD token vesting schedule")
-                d = perc()
+                d,f = perc()
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
@@ -2053,3 +2514,4 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
