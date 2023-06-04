@@ -1528,7 +1528,20 @@ elif authentication_status:
             if project=='Illuvium':
                 st.subheader("Illuvium token vesting schedule")
                 d = ilv()
-                st.dataframe(d)
+                current_token_amount = df_ilv['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = df_ilv['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = df_ilv['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                current_usd_amount = df_ilv['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = df_ilv['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = df_ilv['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Arweave':
                 st.subheader("Arweave token vesting schedule")
                 d = ar()
