@@ -15,7 +15,7 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
-st.set_page_config(page_title="Token Vesting Management for next month", page_icon="🧐", layout="wide")
+st.set_page_config(page_title="Token Vesting for next month", page_icon="🧐", layout="wide")
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
