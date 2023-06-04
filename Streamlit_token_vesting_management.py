@@ -1574,119 +1574,450 @@ elif authentication_status:
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Arweave':
                 st.subheader("Arweave token vesting schedule")
-                d = ar()
-                st.dataframe(d)
+                df_ar = ar()
+                current_token_amount = df_ar['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = df_ar['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = df_ar['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = df_ar['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = df_ar['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = df_ar['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Synthetix':
                 st.subheader("Synthetix token vesting schedule")
                 d = snx()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Automata':
                 st.subheader("Automata token vesting schedule")
-                d = ata1()
-                d1 = ata2()
-                st.dataframe(d)
-                st.dataframe(d1)
+                d1 = ata1()
+                d2 = ata2()
+                current_token_amount = d1['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount of Automata 1:** {current_token_amount}")
+                current_roi = d1['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI of Automata 1:** {current_roi}")
+                current_usd_amount = d1['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount of Automata 1:** {current_usd_amount}")
+                next_vesting_date = d1['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date for Automata 1:** {next_vesting_date}")
+                end_of_vesting = d1['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting for Automata 1:** {end_of_vesting}")
+                unlocked_pct_tokens = d1['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens of Automata 1:** {unlocked_pct_tokens}")
+               
+                current_token_amount = d2['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount of Automata 2:** {current_token_amount}")
+                current_roi = d2['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI of Automata 2:** {current_roi}")
+                current_usd_amount = d2['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount of Automata 2:** {current_usd_amount}")
+                next_vesting_date = d2['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date for Automata 2:** {next_vesting_date}")
+                end_of_vesting = d2['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting for Automata 2:** {end_of_vesting}")
+                unlocked_pct_tokens = d2['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens of Automata 2:** {unlocked_pct_tokens}")
             if project=='Liquity':
                 st.subheader("Liquity token vesting schedule")
                 d = lqty()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Coin98':
                 st.subheader("Coin98 token vesting schedule")
                 d = c98()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Uma':
                 st.subheader("Uma token vesting schedule")
                 d = uma()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Mcdex':
                 st.subheader("Mcdex token vesting schedule")
                 d = mux()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Izumi':
                 st.subheader("Izumi token vesting schedule")
                 d = izi()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Thales':
                 st.subheader("Thales token vesting schedule")
                 d = thales()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Impossible finance':
                 st.subheader("Impossible finance token vesting schedule")
                 d = imf()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Moonbeam':
                 st.subheader("Moonbeam token vesting schedule")
                 d = glmr()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Astar':
                 st.subheader("Astar token vesting schedule")
                 d = astr()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='uJenny':
                 st.subheader("uJenny token vesting schedule")
                 d = ujenny()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Finnexus':
                 st.subheader("Finnexus token vesting schedule")
                 d = fnx()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Stakewise':
                 st.subheader("Stakewise token vesting schedule")
                 d = swise()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Centrifuge':
                 st.subheader("Centrifuge token vesting schedule")
                 d = cfg()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Galaxy':
                 st.subheader("Galaxy token vesting schedule")
                 d = gxy()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Kyve network':
                 st.subheader("Kyve network token vesting schedule")
                 d = kyve()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Mina':
                 st.subheader("Mina token vesting schedule")
                 d = mina()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Meta pool':
                 st.subheader("Meta pool token vesting schedule")
                 d = meta()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Cypher MOD':
                 st.subheader("Cypher MOD token vesting schedule")
                 d = cpr()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Starkware':
                 st.subheader("Starkware token vesting schedule")
                 d = stark()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Aurora':
                 st.subheader("Aurora token vesting schedule")
                 d = aurora()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Daosquare':
                 st.subheader("Daosquare token vesting schedule")
                 d = rice()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Burrow':
                 st.subheader("Burrow token vesting schedule")
                 d = brrr()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Gitcoin':
                 st.subheader("Gitcoin token vesting schedule")
                 d = gtc()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Treasure DAO':
                 st.subheader("Treasure DAO token vesting schedule")
                 d = magic()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Alethea':
                 st.subheader("Alethea MOD token vesting schedule")
                 d = ali()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Perion':
                 st.subheader("Perion MOD token vesting schedule")
                 d = perc()
-                st.dataframe(d)
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
