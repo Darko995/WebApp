@@ -271,5 +271,5 @@ elif authentication_status:
         for column in next_month_unlocked.columns:
             percentage = next_month_unlocked[column][0]
             if percentage > 0:
-                st.write(f"{column}: {percentage}%")
+                st.write(f"{column}: {round(percentage,2)}%")
 
