@@ -97,7 +97,12 @@ elif authentication_status:
         
         fig, ax = plt.subplots()
         ax.plot(df_ilv.index, df_ilv['unlocked_pct_tokens'])
+        # Set the x-axis formatter to display dates in a readable format
+        ax.xaxis.set_major_locator(mdates.MonthLocator())  # Display major ticks on a monthly basis
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))  # Format dates as 'YYYY-MM-DD'
 
+        # Rotate the x-axis labels for better readability
+        plt.xticks(rotation=45)
         # Set the labels and title of the chart
         ax.set_xlabel('Date')
         ax.set_ylabel('Unlocked %')
