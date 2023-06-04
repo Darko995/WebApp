@@ -311,7 +311,7 @@ elif authentication_status:
             df_lqty.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_lqty.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_lqty.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_lqty.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_lqty.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_lqty.index = df_lqty.index.date
@@ -361,7 +361,7 @@ elif authentication_status:
             df_c98.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_c98.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_c98.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_c98.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_c98.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_c98.index = df_c98.index.date
@@ -404,7 +404,7 @@ elif authentication_status:
             df_uma.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_uma.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_uma.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_uma.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_uma.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_uma.index = df_uma.index.date
@@ -447,7 +447,7 @@ elif authentication_status:
             df_mcdex.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_mcdex.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_mcdex.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_mcdex.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_mcdex.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_mcdex.index = df_mcdex.index.date
@@ -490,7 +490,7 @@ elif authentication_status:
             df_izumi.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_izumi.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_izumi.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_izumi.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_izumi.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_izumi.index = df_izumi.index.date
@@ -533,7 +533,7 @@ elif authentication_status:
             df_insur.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_insur.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_insur.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_insur.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_insur.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_insur.index = df_insur.index.date
@@ -578,7 +578,7 @@ elif authentication_status:
             df_thales.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_thales.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_thales.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_thales.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_thales.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_thales.index = df_thales.index.date
@@ -623,7 +623,7 @@ elif authentication_status:
             df_if.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_if.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_if.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_if.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_if.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_if.index = df_if.index.date
@@ -666,7 +666,7 @@ elif authentication_status:
             df_glmr.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_glmr.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_glmr.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_glmr.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_glmr.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_glmr.index = df_glmr.index.date
@@ -709,7 +709,7 @@ elif authentication_status:
             df_astr.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_astr.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_astr.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_astr.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_astr.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_astr.index = df_astr.index.date
@@ -752,7 +752,7 @@ elif authentication_status:
             df_ujenny.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_ujenny.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_ujenny.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_ujenny.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_ujenny.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_ujenny.index = df_ujenny.index.date
@@ -795,7 +795,7 @@ elif authentication_status:
             df_fnx.loc[date, 'current_usd_amount'] = 'N/A'
             df_fnx.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_fnx.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_fnx.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_fnx.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_fnx.index = df_fnx.index.date
@@ -842,7 +842,7 @@ elif authentication_status:
             df_swise.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_swise.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_swise.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_swise.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_swise.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_swise.index = df_swise.index.date
@@ -891,7 +891,7 @@ elif authentication_status:
             df_cfg.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_cfg.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_cfg.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_cfg.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_cfg.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_cfg.index = df_cfg.index.date
@@ -936,7 +936,7 @@ elif authentication_status:
             df_gxy.loc[date, 'current_usd_amount'] = 'N/A'
             df_gxy.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_gxy.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_gxy.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_gxy.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_gxy.index = df_gxy.index.date
@@ -982,7 +982,7 @@ elif authentication_status:
             df_kyve.loc[date, 'current_usd_amount'] = 'N/A'
             df_kyve.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_kyve.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_kyve.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_kyve.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_kyve.index = df_kyve.index.date
@@ -1025,7 +1025,7 @@ elif authentication_status:
             df_mina.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_mina.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_mina.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_mina.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_mina.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_mina.index = df_mina.index.date
@@ -1073,7 +1073,7 @@ elif authentication_status:
             df_meta.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_meta.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_meta.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_meta.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_meta.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_meta.index = df_meta.index.date
@@ -1118,7 +1118,7 @@ elif authentication_status:
             df_cpr.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_cpr.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_cpr.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_cpr.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_cpr.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_cpr.index = df_cpr.index.date
@@ -1173,7 +1173,7 @@ elif authentication_status:
             df_stark.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_stark.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_stark.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_stark.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_stark.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_stark.index = df_stark.index.date
@@ -1219,7 +1219,7 @@ elif authentication_status:
             df_aurora.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_aurora.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_aurora.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_aurora.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_aurora.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_aurora.index = df_aurora.index.date
@@ -1265,7 +1265,7 @@ elif authentication_status:
             df_rice.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_rice.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_rice.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_rice.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_rice.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_rice.index = df_rice.index.date
@@ -1312,7 +1312,7 @@ elif authentication_status:
             df_brrr.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_brrr.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_brrr.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_brrr.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_brrr.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_brrr.index = df_brrr.index.date
@@ -1358,7 +1358,7 @@ elif authentication_status:
             df_gtc.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_gtc.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_gtc.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_gtc.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_gtc.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_gtc.index = df_gtc.index.date
@@ -1409,7 +1409,7 @@ elif authentication_status:
             df_magic.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_magic.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_magic.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_magic.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_magic.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_magic.index = df_magic.index.date
@@ -1460,7 +1460,7 @@ elif authentication_status:
             df_ali.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_ali.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_ali.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_ali.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_ali.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_ali.index = df_ali.index.date
@@ -1508,7 +1508,7 @@ elif authentication_status:
             df_perc.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_perc.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_perc.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_perc.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_perc.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_perc.index = df_perc.index.date
