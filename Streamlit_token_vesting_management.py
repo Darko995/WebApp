@@ -83,12 +83,12 @@ elif authentication_status:
         for date in dates:
             unlocked_pct_tokens += vesting_schedule.get(date, 0)  # Add the percentage for the current date
             unlocked_tokens += (total_tokens_number * vesting_schedule.get(date, 0) / 100)
-            df_ilv.loc[date, 'current_token_amount'] = unlocked_tokens
-            df_ilv.loc[date, 'current_roi'] = current_roi
-            df_ilv.loc[date, 'current_usd_amount'] = unlocked_tokens * current_price
+            df_ilv.loc[date, 'current_token_amount'] = round(unlocked_tokens, 2)
+            df_ilv.loc[date, 'current_roi'] = round(current_roi, 2)
+            df_ilv.loc[date, 'current_usd_amount'] = round(unlocked_tokens * current_price,2)
             df_ilv.loc[date, 'next_vesting_date'] = min([v for v in vesting_schedule.keys() if v > date], default='N/A')
             df_ilv.loc[date, 'end_of_vesting'] = list(vesting_schedule.keys())[-1]
-            df_ilv.loc[date, 'unlocked_pct_tokens'] = unlocked_pct_tokens  # Add the sum of percentages
+            df_ilv.loc[date, 'unlocked_pct_tokens'] = round(unlocked_pct_tokens,2)  # Add the sum of percentages
 
         # Change the index to only display the date part
         df_ilv.index = df_ilv.index.date
