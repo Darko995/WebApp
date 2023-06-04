@@ -3,4 +3,3 @@ streamlit-authenticator
 matplotlib
 yfinance
 pycoingecko
-json
