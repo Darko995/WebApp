@@ -1527,7 +1527,7 @@ elif authentication_status:
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
             if project=='Illuvium':
                 st.subheader("Illuvium token vesting schedule")
-                d = ilv()
+                df_ilv = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ilv['current_roi'].iloc[-1]
