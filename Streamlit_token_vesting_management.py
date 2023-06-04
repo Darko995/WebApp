@@ -121,6 +121,7 @@ elif authentication_status:
 
         # Calculate the cumulative sum of unlocked tokens
         unlocked_tokens = 0
+        unlocked_pct_tokens = 0
         # Fill in the dataframe with the calculated values
         for date in dates:
             unlocked_pct_tokens += vesting_schedule.get(date, 0)  # Add the percentage for the current date
