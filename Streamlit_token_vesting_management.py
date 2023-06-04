@@ -94,7 +94,18 @@ elif authentication_status:
         df_ilv.index = df_ilv.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_ilv['next_vesting_date'] = df_ilv['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_ilv
+        
+        fig, ax = plt.subplots()
+        ax.plot(df_ilv.index, df_ilv['unlocked_pct_tokens'])
+
+        # Set the labels and title of the chart
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Unlocked %')
+        ax.set_title('Unlocked Tokens %')
+
+        # Display the chart in the Streamlit application
+        st.pyplot(fig)
+        return df_ilv,fig
 
     def ar():
         token_ticker = "AR"
@@ -1560,7 +1571,7 @@ elif authentication_status:
             st.header(f"Here's Token Vesting Schedule for {project.capitalize()}!")
             if project=='Illuvium':
                 st.subheader("Illuvium token vesting schedule")
-                df_ilv = ilv()
+                df_ilv, f = ilv()
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ilv['current_roi'].iloc[-1]
@@ -1573,6 +1584,7 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = df_ilv['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+                st.pyplot(f)
             if project=='Arweave':
                 st.subheader("Arweave token vesting schedule")
                 df_ar = ar()
