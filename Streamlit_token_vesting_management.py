@@ -454,7 +454,7 @@ elif authentication_status:
         df_mcdex.index = df_mcdex.index.date
         # Change the dates in the next_vesting_date column to only display the date part
         df_mcdex['next_vesting_date'] = df_mcdex['next_vesting_date'].apply(lambda x: x.date() if x != 'N/A' else 'N/A')
-        return df_mux
+        return df_mcdex
 
     def izi():
         token_ticker = "IZI"
