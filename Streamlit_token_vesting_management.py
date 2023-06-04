@@ -103,8 +103,6 @@ elif authentication_status:
         ax.set_ylabel('Unlocked %')
         ax.set_title('Unlocked Tokens %')
 
-        # Display the chart in the Streamlit application
-        st.pyplot(fig)
         return df_ilv,fig
 
     def ar():
