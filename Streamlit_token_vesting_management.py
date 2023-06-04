@@ -1692,6 +1692,21 @@ elif authentication_status:
                 st.markdown(f"**End of vesting:** {end_of_vesting}")
                 unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
                 st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
+            if project=='Insurace':
+                st.subheader("Izumi token vesting schedule")
+                d = insu()
+                current_token_amount = d['current_token_amount'].iloc[-1]
+                st.markdown(f"**Current Token Amount:** {current_token_amount}")
+                current_roi = d['current_roi'].iloc[-1]
+                st.markdown(f"**Current ROI:** {current_roi}")
+                current_usd_amount = d['current_usd_amount'].iloc[-1]
+                st.markdown(f"**Current USD amount:** {current_usd_amount}")
+                next_vesting_date = d['next_vesting_date'].iloc[-1]
+                st.markdown(f"**Next vesting date:** {next_vesting_date}")
+                end_of_vesting = d['end_of_vesting'].iloc[-1]
+                st.markdown(f"**End of vesting:** {end_of_vesting}")
+                unlocked_pct_tokens = d['unlocked_pct_tokens'].iloc[-1]
+                st.markdown(f"**Unlocked % of Tokens:** {unlocked_pct_tokens}")
             if project=='Izumi':
                 st.subheader("Izumi token vesting schedule")
                 d = izi()
