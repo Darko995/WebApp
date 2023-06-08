@@ -2010,7 +2010,7 @@ elif authentication_status:
                 current_token_amount = df_ilv['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ilv['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = df_ilv['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = df_ilv['next_vesting_date'].iloc[-1]
@@ -2026,7 +2026,7 @@ elif authentication_status:
                 current_token_amount = df_ar['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = df_ar['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = df_ar['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = df_ar['next_vesting_date'].iloc[-1]
@@ -2042,7 +2042,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2059,7 +2059,7 @@ elif authentication_status:
                 current_token_amount = d1['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount of Automata 1:** {current_token_amount}")
                 current_roi = d1['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI of Automata 1:** {current_roi}")
+                st.markdown(f"**Current ROI of Automata 1 in %:** {current_roi}")
                 current_usd_amount = d1['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount of Automata 1:** {current_usd_amount}")
                 next_vesting_date = d1['next_vesting_date'].iloc[-1]
@@ -2071,7 +2071,7 @@ elif authentication_status:
                 st.pyplot(f1)
                 
                 current_token_amount = d2['current_token_amount'].iloc[-1]
-                st.markdown(f"**Current Token Amount of Automata 2:** {current_token_amount}")
+                st.markdown(f"**Current Token Amount of Automata 2 in %:** {current_token_amount}")
                 current_roi = d2['current_roi'].iloc[-1]
                 st.markdown(f"**Current ROI of Automata 2:** {current_roi}")
                 current_usd_amount = d2['current_usd_amount'].iloc[-1]
@@ -2089,7 +2089,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2105,7 +2105,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2121,7 +2121,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2137,7 +2137,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2153,7 +2153,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2169,7 +2169,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2185,7 +2185,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2201,7 +2201,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2217,7 +2217,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2233,7 +2233,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2249,7 +2249,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2265,7 +2265,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2281,7 +2281,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2297,7 +2297,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2313,7 +2313,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2329,7 +2329,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2345,7 +2345,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2361,7 +2361,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2377,7 +2377,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2393,7 +2393,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2409,7 +2409,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2425,7 +2425,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2441,7 +2441,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2457,7 +2457,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2473,7 +2473,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2489,7 +2489,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
@@ -2505,7 +2505,7 @@ elif authentication_status:
                 current_token_amount = d['current_token_amount'].iloc[-1]
                 st.markdown(f"**Current Token Amount:** {current_token_amount}")
                 current_roi = d['current_roi'].iloc[-1]
-                st.markdown(f"**Current ROI:** {current_roi}")
+                st.markdown(f"**Current ROI in %:** {current_roi}")
                 current_usd_amount = d['current_usd_amount'].iloc[-1]
                 st.markdown(f"**Current USD amount:** {current_usd_amount}")
                 next_vesting_date = d['next_vesting_date'].iloc[-1]
